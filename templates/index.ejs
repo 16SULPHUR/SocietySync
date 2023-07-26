@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SocietySynk - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+  <!-- Header Navigation Bar -->
+  <nav class="bg-blue-500 p-4 flex items-center justify-between">
+    <div>
+      <a href="#" class="text-white font-semibold text-xl">SocietySynk</a>
+    </div>
+    <div class="space-x-4 hidden md:flex items-center">
+      <!-- Add login and signup buttons -->
+      <button class="bg-white text-blue-500 hover:text-blue-600 font-semibold px-4 py-2 rounded">Login</button>
+      <button class="bg-blue-700 text-white hover:bg-blue-800 font-semibold px-4 py-2 rounded">Sign Up</button>
+    </div>
+    <div class="md:hidden">
+      <!-- Hamburger icon for mobile menu -->
+      <button class="text-white">
+        <i class="fas fa-bars text-2xl"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Dashboard Content -->
+  <main class="container mx-auto mt-8 p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="bg-white rounded-lg shadow p-4">
+      <h3 class="text-2xl font-semibold mb-4 text-blue-500">Important Announcements</h3>
+      <ul class="list-disc list-inside">
+        <li>Announcement 1</li>
+        <li>Announcement 2</li>
+        <!-- Add dynamic announcements here fetched from the backend -->
+      </ul>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-4">
+      <h3 class="text-2xl font-semibold mb-4 text-purple-500">Upcoming Events</h3>
+      <ul class="list-disc list-inside">
+        <li>Event 1</li>
+        <li>Event 2</li>
+        <!-- Add dynamic events here fetched from the backend -->
+      </ul>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-4">
+      <h3 class="text-2xl font-semibold mb-4 text-yellow-500">Maintenance Payment</h3>
+      <p class="mb-4">Due Date: 31st July 2023</p>
+      <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold px-4 py-2 rounded">
+        Pay Now
+      </button>
+      <!-- Add dynamic maintenance information and payment logic here -->
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-4">
+      <h3 class="text-2xl font-semibold mb-4 text-green-500">Clubhouse Booking</h3>
+      <p class="mb-4">Reserve the clubhouse for your events and functions.</p>
+      <button class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded">
+        Book Now
+      </button>
+      <!-- Add dynamic clubhouse booking logic here -->
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-4">
+      <h3 class="text-2xl font-semibold mb-4 text-red-500">Complaint Box</h3>
+      <p class="mb-4">Submit and track your complaints for prompt resolution.</p>
+      <button class="bg-red-500 hover:bg-red-600 text-white font-semibold px-4 py-2 rounded">
+        Submit Complaint
+      </button>
+      <!-- Add dynamic complaint submission and tracking logic here -->
+    </div>
+  </main>
+
+  <!-- Font Awesome icons -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+  </head>
+  <body>
+    <header class="text-gray-400 bg-gray-900 body-font">
+      <div
+        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+      >
+        <a
+          class="flex title-font font-medium items-center text-white mb-4 md:mb-0"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 640 512"><style>svg{fill:rgb(79, 70, 229)}</style><path d="M48 0C21.5 0 0 21.5 0 48V464c0 26.5 21.5 48 48 48h96V432c0-26.5 21.5-48 48-48s48 21.5 48 48v80h89.9c-6.3-10.2-9.9-22.2-9.9-35.1c0-46.9 25.8-87.8 64-109.2V271.8 48c0-26.5-21.5-48-48-48H48zM64 240c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V240zm112-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V240zM80 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zm80 16c0-8.8 7.2-16 16-16h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H176c-8.8 0-16-7.2-16-16V112zM272 96h32c8.8 0 16 7.2 16 16v32c0 8.8-7.2 16-16 16H272c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16zM576 272a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM352 477.1c0 19.3 15.6 34.9 34.9 34.9H605.1c19.3 0 34.9-15.6 34.9-34.9c0-51.4-41.7-93.1-93.1-93.1H445.1c-51.4 0-93.1 41.7-93.1 93.1z"/></svg>
+          <span class="ml-3 text-xl">SocietySync</span>
+        </a>
+        <nav
+          class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center"
+        >
+          <a class="mr-5 hover:text-white">Dashboard</a>
+          <a class="mr-5 hover:text-white">Events</a>
+          <a class="mr-5 hover:text-white">Gallary</a>
+          <a class="mr-5 hover:text-white">Contact</a>
+        </nav>
+        <button
+          class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0" style="background-color: rgb(79, 70, 229);"
+        >
+          Button
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-4 h-4 ml-1"
+            viewBox="0 0 24 24"
+          >
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="text-gray-400 bg-gray-900 body-font">
+      <div class=" px-5 py-24" >
+        <div
+          class="lg:w-2/6 md:w-1/2 bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col md:ml-auto md:mr-auto w-full mt-10 md:mt-0"
+        >
+          <h2 class="text-white text-lg font-medium title-font mb-5">
+            Sign Up
+          </h2>
+          <div class="relative mb-4">
+            <label for="full-name" class="leading-7 text-sm text-gray-400"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div class="relative mb-4">
+            <label for="email" class="leading-7 text-sm text-gray-400"
+              >Email</label
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-indigo-900 rounded border border-gray-600 focus:border-indigo-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <button
+            class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+          >
+            Button
+          </button>
+          <p class="text-xs mt-3">
+            Literally you probably haven't heard of them jean shorts.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html> -->
+
+
+
+

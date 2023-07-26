@@ -1,11 +1,16 @@
 const express = require('express')
 const mongoose = require('mongoose');
+const path = require('path');
 const bodyParser = require("body-parser");
 const user = require('./modals/User');
 const signinHandler = require('./controllers/_signinHandler');
 const signupHandler = require('./controllers/_signupHandler');
 const app = express()
 const port = 3000
+
+app.set('view engine', 'ejs');
+
+app.set('views', path.join(__dirname, './templates'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,7 +23,7 @@ async function main() {
 }
 
 app.get('/', (req, res) => {
-  res.send('Hello There, This is index of Society Sync')
+  res.render('index', { pageTitle: 'My Page', name: 'John' });
 })
 
 const signinRouter = require('./routes/signin');
