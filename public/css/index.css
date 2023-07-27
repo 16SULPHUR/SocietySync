@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div.logo img {
+  height: 3rem;
+}
+
+div.logo span{
+    font-weight: 500;
+    line-height: normal;
+}
+
+div.links ul li {
+  color: rgb(167, 116, 40);
+  font-weight: 700;
+}
+
+div.links ul li :hover {
+  background-color: rgba(221, 221, 221, 0.627);
+  border-radius: 7px;
+}
+
+nav .btn{
+    color: rgb(34, 34, 34);
+}
+
+nav .btn:hover{
+    background-color: rgba(167, 116, 40, 0.863);
+    color: rgb(255, 255, 255);
+}
