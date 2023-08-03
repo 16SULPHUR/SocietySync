@@ -5,37 +5,526 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sentosa Enclave - SocietySync</title>
 
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
-    <header class="px-9 py-5 shadow-md">
-      <nav class="flex flex-wrap gap-3 justify-between content-center">
-        <a href=""
-          ><div class="logo flex gap-4">
-            <img class="" src="resources/logo.png" alt="Logo" />
-            <span class="">SENTOSA<br />ENCLAVE</span>
-          </div></a
-        >
+    <header class="px-9 py-2 pb-4 sm:pb-4 shadow-md">
+      <nav class="flex gap-3 mt-2 justify-between content-center">
+        <div class="headLogo flex justify-between">
+          <a class="logoLink" href=""
+            ><div class="logo flex gap-4">
+              <img class="" src="resources/logo.png" alt="Logo" />
+              <span class="">SENTOSA<br />ENCLAVE</span>
+            </div></a
+          >
 
-        <div class="links flex flex-wrap gap-3 md:w-auto">
+          <div class="hamburger">
+            <i class="fa fa-solid fa-bars fa-xl" id="hamburger"></i>
+          </div>
+        </div>
+
+        <div class="big-screens-links links flex flex-wrap gap-3 md:w-auto">
           <ul class="flex flex-wrap gap-7 content-center justify-center">
-            <li><a class="px-3 py-2" href="">Dashboard</a></li>
-            <li><a class="px-3 py-2" href="">Events</a></li>
-            <li><a class="px-3 py-2" href="">Gallery</a></li>
-            <li><a class="px-3 py-2" href="">Contact</a></li>
+            <li><a class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2]" href="">Dashboard</a></li>
+            <li><a class="px-3 py-2 text-red-600 hover:bg-red-300/[.2]" href="">Events</a></li>
+            <li><a class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2]" href="">Gallery</a></li>
+            <li><a class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2]" href="">Contact</a></li>
           </ul>
         </div>
 
-        <button class="btn font-bold py-2 px-4 rounded">Log in</button>
+        <div
+          class="small-screens-links links flex gap-3"
+          id="small-screen-links"
+        >
+          <ul class="flex flex-wrap flex-col gap-7" id="small-screens-links-ul">
+            <li><a class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2]" href="">Dashboard</a></li>
+            <li><a class="px-3 py-2 text-red-600 hover:bg-red-300/[.2]" href="">Events</a></li>
+            <li><a class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2]" href="">Gallery</a></li>
+            <li><a class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2]" href="">Contact</a></li>
+          </ul>
+        </div>
+
+        <button class="btn font-bold py-2 px-4 rounded mb-4 hover:bg-fuchsia-500" id="loginBtn">
+          Log in
+        </button>
+        <button
+          class="loginBtn btn font-bold py-2 px-4 rounded hover:bg-fuchsia-500"
+          id="loginBtn"
+        >
+          Log in
+        </button>
       </nav>
     </header>
 
-    <main>
+    <main class="py-8">
+      <div class="user flex lg:p-5 lg:gap-28 lg:px-48">
+        <!-- <div class="userDP rounded-md p-4  bg-green-300"> -->
+        <div class="userDP rounded-md p-4">
+          <img
+            class="rounded-full border-4 shadow-lg border-orange-600"
+            src="resources/user.jpg"
+            alt="Placeholder Image"
+            
+          />
+        </div>
+
+        <!-- <div class="userInfo w-9/12 bg-blue-300 p-4"> -->
+        <div class="userInfo lg:w-8/12 p-4">
+          <div class="container mx-auto lg:px-4">
+            <div
+              class="grid-container bg-white rounded-lg shadow-sm py-2 lg:px-6 grid grid-cols-2 gap-4"
+            >
+              <!-- User Name -->
+              <div>
+                <label class="text-gray-600 h-32 font-medium">Name:</label>
+                <p class="text-gray-800">Ankit Shashikant Patil</p>
+              </div>
+
+              <!-- Flat Number -->
+              <div>
+                <label class="text-gray-600 h-32 font-medium">Flat:</label>
+                <p class="text-gray-800">B-3/203</p>
+              </div>
+
+              <!-- Phone Number -->
+              <div>
+                <label class="text-gray-600 h-32 font-medium">Phone:</label>
+                <p class="text-gray-800">+91 12345-67890</p>
+              </div>
+
+              <!-- Intercom Number -->
+              <div>
+                <label class="text-gray-600 h-32 font-medium">Intercom:</label>
+                <p class="text-gray-800">1234</p>
+              </div>
+
+              <!-- Maintenance Status -->
+              <div>
+                <label class="text-gray-600 h-32 font-medium"
+                  >Maintenance Status:</label
+                >
+                <br />
+                <!-- <p class="text-green-600 font-semibold">Paid</p> -->
+                <span class="text-green-600 font-semibold">Paid</span> /
+                <span class="text-red-600 font-semibold"
+                  >Pending from 1 month(s)</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="bg-gray-100 py-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-3xl font-semibold text-gray-800 mb-4">
+            Upcoming events
+          </h2>
+
+            <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> -->
+            <div class="events overflow-x-scroll h-56" id="scrollable">
+              <!-- News Card 1 -->
+              <div
+                style="background: rgba(252, 0, 0, 0.25)"
+                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Event 1
+                </h3>
+                <p class="text-gray-600 h-32">
+                  Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
+                  turpis, quis consequat tellus nulla eu nisi.
+                </p>
+              </div>
+
+              <!-- News Card 2 -->
+              <div
+                style="background: rgba(212, 255, 0, 0.25)"
+                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Event 2
+                </h3>
+                <p class="text-gray-600 h-32">
+                  Pellentesque habitant morbi tristique senectus et netus et
+                  malesuada fames ac turpis egestas.
+                </p>
+              </div>
+
+              <!-- News Card 3 -->
+              <div
+                style="background: rgba(0, 255, 64, 0.25)"
+                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Event 3
+                </h3>
+                <p class="text-gray-600 h-32">
+                  Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
+                  turpis, quis consequat tellus nulla eu nisi.
+                </p>
+              </div>
+
+              <!-- News Card 1 -->
+              <div
+                style="background: rgba(0, 217, 250, 0.25)"
+                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Event 1
+                </h3>
+                <p class="text-gray-600 h-32">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                  tristique mi in bibendum feugiat.
+                </p>
+              </div>
+
+              <!-- News Card 2 -->
+              <div
+                style="background: rgba(0, 38, 255, 0.25)"
+                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Event 2
+                </h3>
+                <p class="text-gray-600 h-32">
+                  Pellentesque habitant morbi tristique senectus et netus et
+                  malesuada fames ac turpis egestas.
+                </p>
+              </div>
+
+              <!-- News Card 3 -->
+              <div
+                style="background: rgba(255, 0, 217, 0.25)"
+                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+              >
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                  Event 3
+                </h3>
+                <p class="text-gray-600 h-32">
+                  Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
+                  turpis, quis consequat tellus nulla eu nisi.
+                </p>
+              </div>
+            </div>
+        </div>
+      </section>
+
+      <div class="noticeAndFeatures sm:mx-9 flex sm:flex-row flex-col">
+
+        <!-- Notice board -->
+        
+        <div class="container mx-auto mt-8 px-4 sm:w-7/12 w-10/12">
+          <h2 class="text-3xl font-semibold mb-4">Notice Board</h2>
+
+           <!-- Notice 1 -->
+           <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-red-600">Important Notice - COVID-19 Guidelines</h3>
+            <p class="text-gray-600">
+              In light of the current COVID-19 situation, please follow the guidelines provided by the authorities to
+              ensure the safety and well-being of the community.
+            </p>
+          </div>
       
+          <!-- Notice 2 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-green-600">Upcoming Maintenance Activity</h3>
+            <p class="text-gray-600">
+              There will be a scheduled maintenance activity on [Date] from [Start Time] to [End Time]. Please make necessary
+              arrangements.
+            </p>
+          </div>
+      
+          <!-- Notice 3 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-blue-600">Community Event - Family Day</h3>
+            <p class="text-gray-600">
+              Join us for the Family Day event on [Date]. There will be games, food stalls, and fun activities for all ages.
+              Don't miss it!
+            </p>
+          </div>
+      
+          <!-- Notice 1 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-yellow-600">Important Notice - COVID-19 Guidelines</h3>
+            <p class="text-gray-600">
+              In light of the current COVID-19 situation, please follow the guidelines provided by the authorities to
+              ensure the safety and well-being of the community.
+            </p>
+          </div>
+      
+          <!-- Notice 2 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-orange-600">Upcoming Maintenance Activity</h3>
+            <p class="text-gray-600">
+              There will be a scheduled maintenance activity on [Date] from [Start Time] to [End Time]. Please make necessary
+              arrangements.
+            </p>
+          </div>
+      
+          <!-- Notice 3 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-fuchsia-600">Community Event - Family Day</h3>
+            <p class="text-gray-600">
+              Join us for the Family Day event on [Date]. There will be games, food stalls, and fun activities for all ages.
+              Don't miss it!
+            </p>
+          </div>
+         
+         
+      
+        </div>
+      
+        <!-- features -->
+
+      <div class="features sm:px-6 sm:mt-8 mx-9">
+        <h2 class="text-3xl font-semibold mb-4">Features</h2>
+        <div class="container mx-auto mt-8 px-4">
+          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-2">
+            <!-- Maintenance Section -->
+            <div class="bg-white rounded-lg shadow p-4">
+              <!-- Add content for Maintenance section here -->
+              <h3 class="text-xl font-semibold mb-2">Maintenance</h3>
+              <p>
+                Effortlessly pay society maintenance dues online for hassle-free
+                transactions.
+              </p>
+              <button
+                class="mt-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded"
+              >
+                Pay Now
+              </button>
+              <!-- Add more details and buttons as needed -->
+            </div>
+
+            <!-- Club House Booking Section -->
+            <div class="bg-white rounded-lg shadow p-4">
+              <!-- Add content for Club House Booking section here -->
+              <h3 class="text-xl font-semibold mb-2">Club House Booking</h3>
+              <p>
+                Reserve clubhouse facilities for various events and functions
+                with ease.
+              </p>
+              <button
+                class="mt-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded"
+              >
+                Book Now
+              </button>
+              <!-- Add more details and buttons as needed -->
+            </div>
+
+            <!-- Complaint Box Section -->
+            <div class="bg-white rounded-lg shadow p-4">
+              <!-- Add content for Complaint Box section here -->
+              <h3 class="text-xl font-semibold mb-2">Complaint Box</h3>
+              <p>
+                Raise and track grievances, ensuring prompt resolutions and
+                improved services.
+              </p>
+              <button
+                class="mt-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded"
+              >
+                Submit Complaint
+              </button>
+              <!-- Add more details and buttons as needed -->
+            </div>
+
+            <!-- Receipts and Payment History Section -->
+            <div class="bg-white rounded-lg shadow p-4">
+              <!-- Add content for Receipts and Payment History section here -->
+              <h3 class="text-xl font-semibold mb-2">
+                Receipts and Payment History
+              </h3>
+              <p>
+                Access and download payment receipts for maintenance and other
+                transactions.
+              </p>
+              <button
+                class="mt-2 px-4 py-2 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-semibold rounded"
+              >
+                View Receipts
+              </button>
+              <!-- Add more details and buttons as needed -->
+            </div>
+
+            <!-- Telecom List Section -->
+            <div class="bg-white rounded-lg shadow p-4">
+              <!-- Add content for Telecom List section here -->
+              <h3 class="text-xl font-semibold mb-2">Telecom List</h3>
+              <p>
+                Easily find and access important telecom numbers within the
+                society.
+              </p>
+              <button
+                class="mt-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded"
+              >
+                Call Now
+              </button>
+              <!-- Add more details and buttons as needed -->
+            </div>
+
+            <!-- Rules and Regulations Section -->
+            <div class="bg-white rounded-lg shadow p-4">
+              <!-- Add content for Rules and Regulations section here -->
+              <h3 class="text-xl font-semibold mb-2">Rules and Regulations</h3>
+              <p>Explore the rules and regulations that govern the society.</p>
+              <button
+                class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded"
+              >
+                Learn More
+              </button>
+              <!-- Add more details and buttons as needed -->
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+
     </main>
+
+    <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer>
   </body>
 </html>
+
+<script>
+  console.log(screen.width);
+  // Hamburger menu Handler
+  const hambtn = document.getElementById("hamburger");
+  const loginBtn = document.getElementById("loginBtn");
+  const smallScreenLinks = document.getElementById("small-screens-links-ul");
+
+  console.log(smallScreenLinks);
+
+  smallScreenLinks.style.display = "none";
+  loginBtn.style.display = "none";
+
+  hambtn.addEventListener("click", () => {
+    console.log(smallScreenLinks.style.display, loginBtn.style.display);
+    if (loginBtn.style.display == "none") {
+      smallScreenLinks.style.display = "flex";
+      loginBtn.style.display = "block";
+    } else {
+      smallScreenLinks.style.display = "none";
+      loginBtn.style.display = "none";
+    }
+  });
+
+  // Function to automatically scroll the div horizontally
+
+  scrollRound = 0;
+  let round1Scroll=0;
+  let round0Scroll=0;
+  function autoScrollDiv() {
+    const scrollableDiv = document.getElementById("scrollable");
+    const scrollAmount = scrollableDiv.clientWidth;
+    
+    if (screen.width <= 390) {
+      
+      // const scrollAmount = 370;
+      // scrollableDiv.scrollLeft += scrollAmount;
+      
+      if(scrollRound == 0){
+        round0Scroll = scrollableDiv.scrollLeft;
+        scrollRound = 1
+      }else{
+        round1Scroll = scrollableDiv.scrollLeft;
+        scrollRound = 0;
+      }
+      
+      console.log("Scroll left : ", scrollableDiv.scrollLeft ,"Scroll round : ", scrollRound , "round 0 scroll : ", round0Scroll , "round 1 scroll : ", round1Scroll);
+      
+      
+      if(scrollableDiv.scrollLeft==0){
+        console.log("scrolled left")
+        scrollableDiv.scrollLeft += scrollAmount;
+      }else  if(!(round0Scroll==round1Scroll)){
+        scrollableDiv.scrollLeft += scrollAmount;
+      }else{
+        scrollableDiv.scrollLeft = 0;
+      }
+      
+      
+      
+      console.log(
+        scrollableDiv.scrollLeft,
+        scrollableDiv.scrollWidth - scrollableDiv.clientWidth
+        );
+        
+        
+        
+        
+        
+        // Check if the scroll reaches the end and reset to the beginning
+        //   if (
+          //     scrollableDiv.scrollLeft >=
+          //     scrollableDiv.scrollWidth - scrollableDiv.clientWidth ||
+          //     scrollableDiv.scrollLeft == 1849.5999755859375
+          //     ) {
+            //   // scrollableDiv.scrollLeft -= scrollAmount;
+            //   scrollableDiv.scrollLeft = 0;
+            
+            // }
+            
+            
+            
+            
+            
+          } else {
+            // scrollableDiv.scrollLeft += scrollAmount;
+            // const scrollAmount = 1200; 
+            
+            
+            if(scrollRound == 0){
+              round0Scroll = scrollableDiv.scrollLeft;
+              scrollRound = 1
+            }else{
+              round1Scroll = scrollableDiv.scrollLeft;
+              scrollRound = 0;
+      }
+
+      console.log("Scroll round : ", scrollRound);
+
+
+
+      console.log(
+        scrollableDiv.scrollLeft,
+        scrollableDiv.scrollWidth - scrollableDiv.clientWidth
+      );
+
+      // Check if the scroll reaches the end and reset to the beginning
+      // if (
+      //   scrollableDiv.scrollLeft >=
+      //     scrollableDiv.scrollWidth - scrollableDiv.clientWidth ||
+      //   scrollableDiv.scrollLeft == 1113.5999755859375
+      // ) {
+      //   // scrollableDiv.scrollRight = 0;
+      //   scrollableDiv.scrollLeft = 0;
+      // }
+
+      if(scrollableDiv.scrollLeft==0){
+        console.log("scrolled left")
+        scrollableDiv.scrollLeft += scrollAmount;
+      }else  if(!(round0Scroll==round1Scroll)){
+        scrollableDiv.scrollLeft += scrollAmount;
+      }else{
+        scrollableDiv.scrollLeft = 0;
+      }
+    }
+  }
+
+  // Set the interval to call the autoScrollDiv function every 3 seconds (adjust as needed)
+  window.onload = function () {
+    setInterval(autoScrollDiv, 1500); // Lower interval for smoother continuous scrolling
+  };
+</script>
