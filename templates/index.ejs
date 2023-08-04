@@ -16,7 +16,7 @@
     />
   </head>
   <body>
-    <header class="px-9 py-2 pb-4 sm:pb-4 shadow-md">
+    <header class="px-9 py-2 pb-4 sm:pb-4 shadow-md z-20">
       <nav class="flex gap-3 mt-2 justify-between content-center">
         <div class="headLogo flex justify-between">
           <a class="logoLink" href=""
@@ -33,10 +33,37 @@
 
         <div class="big-screens-links links flex flex-wrap gap-3 md:w-auto">
           <ul class="flex flex-wrap gap-7 content-center justify-center">
-            <li><a class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2]" href="">Dashboard</a></li>
-            <li><a class="px-3 py-2 text-red-600 hover:bg-red-300/[.2]" href="">Events</a></li>
-            <li><a class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2]" href="">Gallery</a></li>
-            <li><a class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2]" href="">Contact</a></li>
+            <li>
+              <a class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2]" href=""
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2]"
+                href=""
+                >Admin Dashboard</a
+              >
+            </li>
+            <li>
+              <a class="px-3 py-2 text-red-600 hover:bg-red-300/[.2]" href=""
+                >Events</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2]"
+                href=""
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2]"
+                href=""
+                >Contact</a
+              >
+            </li>
           </ul>
         </div>
 
@@ -45,14 +72,44 @@
           id="small-screen-links"
         >
           <ul class="flex flex-wrap flex-col gap-7" id="small-screens-links-ul">
-            <li><a class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2]" href="">Dashboard</a></li>
-            <li><a class="px-3 py-2 text-red-600 hover:bg-red-300/[.2]" href="">Events</a></li>
-            <li><a class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2]" href="">Gallery</a></li>
-            <li><a class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2]" href="">Contact</a></li>
+            <li>
+              <a class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2]" href=""
+                >Dashboard</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2]"
+                href=""
+                >Admin Dashboard</a
+              >
+            </li>
+            <li>
+              <a class="px-3 py-2 text-red-600 hover:bg-red-300/[.2]" href=""
+                >Events</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2]"
+                href=""
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2]"
+                href=""
+                >Contact</a
+              >
+            </li>
           </ul>
         </div>
 
-        <button class="btn font-bold py-2 px-4 rounded mb-4 hover:bg-fuchsia-500" id="loginBtn">
+        <button
+          class="btn font-bold py-2 px-4 rounded mb-4 hover:bg-fuchsia-500"
+          id="loginBtn"
+        >
           Log in
         </button>
         <button
@@ -72,7 +129,6 @@
             class="rounded-full border-4 shadow-lg border-orange-600"
             src="resources/user.jpg"
             alt="Placeholder Image"
-            
           />
         </div>
 
@@ -129,266 +185,307 @@
             Upcoming events
           </h2>
 
-            <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> -->
-            <div class="events overflow-x-scroll h-56" id="scrollable">
-              <!-- News Card 1 -->
-              <div
-                style="background: rgba(252, 0, 0, 0.25)"
-                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
-              >
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  Event 1
-                </h3>
-                <p class="text-gray-600 h-32">
-                  Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
-                  turpis, quis consequat tellus nulla eu nisi.
-                </p>
-              </div>
-
-              <!-- News Card 2 -->
-              <div
-                style="background: rgba(212, 255, 0, 0.25)"
-                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
-              >
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  Event 2
-                </h3>
-                <p class="text-gray-600 h-32">
-                  Pellentesque habitant morbi tristique senectus et netus et
-                  malesuada fames ac turpis egestas.
-                </p>
-              </div>
-
-              <!-- News Card 3 -->
-              <div
-                style="background: rgba(0, 255, 64, 0.25)"
-                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
-              >
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  Event 3
-                </h3>
-                <p class="text-gray-600 h-32">
-                  Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
-                  turpis, quis consequat tellus nulla eu nisi.
-                </p>
-              </div>
-
-              <!-- News Card 1 -->
-              <div
-                style="background: rgba(0, 217, 250, 0.25)"
-                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
-              >
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  Event 1
-                </h3>
-                <p class="text-gray-600 h-32">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  tristique mi in bibendum feugiat.
-                </p>
-              </div>
-
-              <!-- News Card 2 -->
-              <div
-                style="background: rgba(0, 38, 255, 0.25)"
-                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
-              >
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  Event 2
-                </h3>
-                <p class="text-gray-600 h-32">
-                  Pellentesque habitant morbi tristique senectus et netus et
-                  malesuada fames ac turpis egestas.
-                </p>
-              </div>
-
-              <!-- News Card 3 -->
-              <div
-                style="background: rgba(255, 0, 217, 0.25)"
-                class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
-              >
-                <h3 class="text-xl font-semibold text-gray-900 mb-2">
-                  Event 3
-                </h3>
-                <p class="text-gray-600 h-32">
-                  Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
-                  turpis, quis consequat tellus nulla eu nisi.
-                </p>
-              </div>
+          <!-- <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> -->
+          <div class="events overflow-x-scroll h-56" id="scrollable">
+            <!-- News Card 1 -->
+            <div
+              style="background: rgba(252, 0, 0, 0.25)"
+              class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Event 1</h3>
+              <p class="text-gray-600 h-32">
+                Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
+                turpis, quis consequat tellus nulla eu nisi.
+              </p>
             </div>
+
+            <!-- News Card 2 -->
+            <div
+              style="background: rgba(212, 255, 0, 0.25)"
+              class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Event 2</h3>
+              <p class="text-gray-600 h-32">
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas.
+              </p>
+            </div>
+
+            <!-- News Card 3 -->
+            <div
+              style="background: rgba(0, 255, 64, 0.25)"
+              class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Event 3</h3>
+              <p class="text-gray-600 h-32">
+                Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
+                turpis, quis consequat tellus nulla eu nisi.
+              </p>
+            </div>
+
+            <!-- News Card 1 -->
+            <div
+              style="background: rgba(0, 217, 250, 0.25)"
+              class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Event 1</h3>
+              <p class="text-gray-600 h-32">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                tristique mi in bibendum feugiat.
+              </p>
+            </div>
+
+            <!-- News Card 2 -->
+            <div
+              style="background: rgba(0, 38, 255, 0.25)"
+              class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Event 2</h3>
+              <p class="text-gray-600 h-32">
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames ac turpis egestas.
+              </p>
+            </div>
+
+            <!-- News Card 3 -->
+            <div
+              style="background: rgba(255, 0, 217, 0.25)"
+              class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+            >
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">Event 3</h3>
+              <p class="text-gray-600 h-32">
+                Fusce auctor, nisi id vestibulum faucibus, velit nunc interdum
+                turpis, quis consequat tellus nulla eu nisi.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <div class="noticeAndFeatures sm:mx-9 flex sm:flex-row flex-col">
+      <!-- Noticeboard and features -->
 
+      <div class="noticeAndFeatures sm:mx-9 flex sm:flex-row flex-col">
         <!-- Notice board -->
-        
+
         <div class="container mx-auto mt-8 px-4 sm:w-7/12 w-10/12">
           <h2 class="text-3xl font-semibold mb-4">Notice Board</h2>
 
-           <!-- Notice 1 -->
-           <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-            <h3 class="text-xl font-semibold mb-2 text-red-600">Important Notice - COVID-19 Guidelines</h3>
-            <p class="text-gray-600">
-              In light of the current COVID-19 situation, please follow the guidelines provided by the authorities to
-              ensure the safety and well-being of the community.
-            </p>
-          </div>
-      
-          <!-- Notice 2 -->
-          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-            <h3 class="text-xl font-semibold mb-2 text-green-600">Upcoming Maintenance Activity</h3>
-            <p class="text-gray-600">
-              There will be a scheduled maintenance activity on [Date] from [Start Time] to [End Time]. Please make necessary
-              arrangements.
-            </p>
-          </div>
-      
-          <!-- Notice 3 -->
-          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-            <h3 class="text-xl font-semibold mb-2 text-blue-600">Community Event - Family Day</h3>
-            <p class="text-gray-600">
-              Join us for the Family Day event on [Date]. There will be games, food stalls, and fun activities for all ages.
-              Don't miss it!
-            </p>
-          </div>
-      
           <!-- Notice 1 -->
           <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-            <h3 class="text-xl font-semibold mb-2 text-yellow-600">Important Notice - COVID-19 Guidelines</h3>
+            <h3 class="text-xl font-semibold mb-2 text-red-600">
+              Important Notice - COVID-19 Guidelines
+            </h3>
             <p class="text-gray-600">
-              In light of the current COVID-19 situation, please follow the guidelines provided by the authorities to
-              ensure the safety and well-being of the community.
+              In light of the current COVID-19 situation, please follow the
+              guidelines provided by the authorities to ensure the safety and
+              well-being of the community.
             </p>
           </div>
-      
+
           <!-- Notice 2 -->
           <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-            <h3 class="text-xl font-semibold mb-2 text-orange-600">Upcoming Maintenance Activity</h3>
+            <h3 class="text-xl font-semibold mb-2 text-green-600">
+              Upcoming Maintenance Activity
+            </h3>
             <p class="text-gray-600">
-              There will be a scheduled maintenance activity on [Date] from [Start Time] to [End Time]. Please make necessary
-              arrangements.
+              There will be a scheduled maintenance activity on [Date] from
+              [Start Time] to [End Time]. Please make necessary arrangements.
             </p>
           </div>
-      
+
           <!-- Notice 3 -->
           <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-            <h3 class="text-xl font-semibold mb-2 text-fuchsia-600">Community Event - Family Day</h3>
+            <h3 class="text-xl font-semibold mb-2 text-blue-600">
+              Community Event - Family Day
+            </h3>
             <p class="text-gray-600">
-              Join us for the Family Day event on [Date]. There will be games, food stalls, and fun activities for all ages.
-              Don't miss it!
+              Join us for the Family Day event on [Date]. There will be games,
+              food stalls, and fun activities for all ages. Don't miss it!
             </p>
           </div>
-         
-         
-      
+
+          <!-- Notice 1 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-yellow-600">
+              Important Notice - COVID-19 Guidelines
+            </h3>
+            <p class="text-gray-600">
+              In light of the current COVID-19 situation, please follow the
+              guidelines provided by the authorities to ensure the safety and
+              well-being of the community.
+            </p>
+          </div>
+
+          <!-- Notice 2 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-orange-600">
+              Upcoming Maintenance Activity
+            </h3>
+            <p class="text-gray-600">
+              There will be a scheduled maintenance activity on [Date] from
+              [Start Time] to [End Time]. Please make necessary arrangements.
+            </p>
+          </div>
+
+          <!-- Notice 3 -->
+          <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2 text-fuchsia-600">
+              Community Event - Family Day
+            </h3>
+            <p class="text-gray-600">
+              Join us for the Family Day event on [Date]. There will be games,
+              food stalls, and fun activities for all ages. Don't miss it!
+            </p>
+          </div>
         </div>
-      
+
         <!-- features -->
 
-      <div class="features sm:px-6 sm:mt-8 mx-9">
-        <h2 class="text-3xl font-semibold mb-4">Features</h2>
-        <div class="container mx-auto mt-8 px-4">
-          <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-2">
-            <!-- Maintenance Section -->
-            <div class="bg-white rounded-lg shadow p-4">
-              <!-- Add content for Maintenance section here -->
-              <h3 class="text-xl font-semibold mb-2">Maintenance</h3>
-              <p>
-                Effortlessly pay society maintenance dues online for hassle-free
-                transactions.
-              </p>
-              <button
-                class="mt-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded"
-              >
-                Pay Now
-              </button>
-              <!-- Add more details and buttons as needed -->
-            </div>
+        <div class="features sm:px-6 sm:mt-8 mx-9">
+          <h2 class="text-3xl font-semibold mb-4">Features</h2>
+          <div class="container mx-auto mt-8 px-4">
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-2">
+              
+              <!-- Maintenance Section -->
+              <!-- <div class="bg-white rounded-lg shadow p-4">
+                <img
+                  src="resources/maintenance.png"
+                  alt="Icon"
+                  class="w-8 h-8 absolute bottom-0 left-0 z-0"
+                />
+                <div class="z-10">
+                  <h3 class="text-xl font-semibold mb-2">Maintenance</h3>
+                  <p>
+                    Effortlessly pay society maintenance dues online for
+                    hassle-free transactions.
+                  </p>
+                  <button
+                    class="mt-2 px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded"
+                  >
+                    Pay Now
+                  </button>
+                </div>
+              </div> -->
 
-            <!-- Club House Booking Section -->
-            <div class="bg-white rounded-lg shadow p-4">
-              <!-- Add content for Club House Booking section here -->
-              <h3 class="text-xl font-semibold mb-2">Club House Booking</h3>
-              <p>
-                Reserve clubhouse facilities for various events and functions
-                with ease.
-              </p>
-              <button
-                class="mt-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded"
-              >
-                Book Now
-              </button>
-              <!-- Add more details and buttons as needed -->
-            </div>
+              <div class=" rounded-lg shadow p-4 relative  overflow-hidden">
+                <!-- Add the icon -->
+                <img src="resources/maintenance.png" alt="Icon" class="absolute bottom-0 right-0 z-0" style="height: 120%; opacity: 0.5;">
+              
+                <!-- Add content for Rules and Regulations section here -->
+                <div class="z-10"> <!-- Use a higher z-index for the content to appear on top of the icon -->
+                  <h3 class="text-xl font-semibold mb-2">Rules and Regulations</h3>
+                  <p>Explore the rules and regulations that govern the society.</p>
+                  <button class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded">
+                    Learn More
+                  </button>
+                  <!-- Add more details and buttons as needed -->
+                </div>
+              </div>
+              
 
-            <!-- Complaint Box Section -->
-            <div class="bg-white rounded-lg shadow p-4">
-              <!-- Add content for Complaint Box section here -->
-              <h3 class="text-xl font-semibold mb-2">Complaint Box</h3>
-              <p>
-                Raise and track grievances, ensuring prompt resolutions and
-                improved services.
-              </p>
-              <button
-                class="mt-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded"
-              >
-                Submit Complaint
-              </button>
-              <!-- Add more details and buttons as needed -->
-            </div>
+              <!-- Club House Booking Section -->
+              <div class=" rounded-lg shadow p-4 relative  overflow-hidden">
+                <!-- Add the icon -->
+                <img src="resources/clubhouse.png" alt="Icon" class="absolute bottom-0 right-0 z-0" style="height: 120%; opacity: 0.3;">
+              
+                <!-- Add content for Rules and Regulations section here -->
+                <div class="z-10">
+                <h3 class="text-xl font-semibold mb-2">Club House Booking</h3>
+                <p>
+                  Reserve clubhouse facilities for various events and functions
+                  with ease.
+                </p>
+                <button
+                  class="mt-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded"
+                >
+                  Book Now
+                </button>
+                </div>
+              </div>
 
-            <!-- Receipts and Payment History Section -->
-            <div class="bg-white rounded-lg shadow p-4">
-              <!-- Add content for Receipts and Payment History section here -->
-              <h3 class="text-xl font-semibold mb-2">
-                Receipts and Payment History
-              </h3>
-              <p>
-                Access and download payment receipts for maintenance and other
-                transactions.
-              </p>
-              <button
-                class="mt-2 px-4 py-2 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-semibold rounded"
-              >
-                View Receipts
-              </button>
-              <!-- Add more details and buttons as needed -->
-            </div>
+              <!-- Complaint Box Section -->
+              <div class=" rounded-lg shadow p-4 relative  overflow-hidden">
+                <!-- Add the icon -->
+                <img src="resources/complain.png" alt="Icon" class="absolute bottom-0 right-0 z-0" style="height: 110%; opacity: 0.3;">
+              
+                <!-- Add content for Rules and Regulations section here -->
+                <div class="z-10">
+                <h3 class="text-xl font-semibold mb-2">Complaint Box</h3>
+                <p>
+                  Raise and track grievances, ensuring prompt resolutions and
+                  improved services.
+                </p>
+                <button
+                  class="mt-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white font-semibold rounded"
+                >
+                  Submit Complaint
+                </button>
+                </div>
+              </div>
 
-            <!-- Telecom List Section -->
-            <div class="bg-white rounded-lg shadow p-4">
-              <!-- Add content for Telecom List section here -->
-              <h3 class="text-xl font-semibold mb-2">Telecom List</h3>
-              <p>
-                Easily find and access important telecom numbers within the
-                society.
-              </p>
-              <button
-                class="mt-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded"
-              >
-                Call Now
-              </button>
-              <!-- Add more details and buttons as needed -->
-            </div>
+              <!-- Receipts and Payment History Section -->
+              <div class=" rounded-lg shadow p-4 relative  overflow-hidden">
+                <!-- Add the icon -->
+                <img src="resources/reciept.png" alt="Icon" class="absolute bottom-0 right-0 z-0" style="height: 120%; opacity: 0.3;">
+              
+                <!-- Add content for Rules and Regulations section here -->
+                <div class="z-10">
+                <h3 class="text-xl font-semibold mb-2">
+                  Receipts and Payment History
+                </h3>
+                <p>
+                  Access and download payment receipts for maintenance and other
+                  transactions.
+                </p>
+                <button
+                  class="mt-2 px-4 py-2 bg-fuchsia-500 hover:bg-fuchsia-600 text-white font-semibold rounded"
+                >
+                  View Receipts
+                </button>
+                </div>
+                <!-- Add more details and buttons as needed -->
+              </div>
 
-            <!-- Rules and Regulations Section -->
-            <div class="bg-white rounded-lg shadow p-4">
-              <!-- Add content for Rules and Regulations section here -->
-              <h3 class="text-xl font-semibold mb-2">Rules and Regulations</h3>
-              <p>Explore the rules and regulations that govern the society.</p>
-              <button
-                class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded"
-              >
-                Learn More
-              </button>
-              <!-- Add more details and buttons as needed -->
+              <!-- Telecom List Section -->
+              <div class=" rounded-lg shadow p-4 relative  overflow-hidden">
+                <img src="resources/intercom.png" alt="Icon" class="absolute right-0 z-0" style="height: 110%; opacity: 0.3;">
+                <div class="z-10">
+                <h3 class="text-xl font-semibold mb-2">Intercom List</h3>
+                <p>
+                  Easily find and access important telecom numbers within the
+                  society.
+                </p>
+                <button
+                  class="mt-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded"
+                >
+                  Call Now
+                </button>
+                </div>
+                <!-- Add more details and buttons as needed -->
+              </div>
+
+              <!-- Rules and Regulations Section -->
+              <div class=" rounded-lg shadow p-4 relative  overflow-hidden">
+                <img src="resources/rules.png" alt="Icon" class="absolute bottom-0 right-0 z-0" style="height: 110%; opacity: 0.3;">
+                <div class="z-10">
+                <!-- Add content for Rules and Regulations section here -->
+                <h3 class="text-xl font-semibold mb-2">
+                  Rules and Regulations
+                </h3>
+                <p>
+                  Explore the rules and regulations that govern the society.
+                </p>
+                <button
+                  class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded"
+                >
+                  Learn More
+                </button>
+              </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
-
-
     </main>
 
     <footer class="h-8 w-full bg-gray-500 text-center text-white">
@@ -423,79 +520,72 @@
   // Function to automatically scroll the div horizontally
 
   scrollRound = 0;
-  let round1Scroll=0;
-  let round0Scroll=0;
+  let round1Scroll = 0;
+  let round0Scroll = 0;
   function autoScrollDiv() {
     const scrollableDiv = document.getElementById("scrollable");
     const scrollAmount = scrollableDiv.clientWidth;
-    
+
     if (screen.width <= 390) {
-      
       // const scrollAmount = 370;
       // scrollableDiv.scrollLeft += scrollAmount;
-      
-      if(scrollRound == 0){
+
+      if (scrollRound == 0) {
         round0Scroll = scrollableDiv.scrollLeft;
-        scrollRound = 1
-      }else{
+        scrollRound = 1;
+      } else {
         round1Scroll = scrollableDiv.scrollLeft;
         scrollRound = 0;
       }
-      
-      console.log("Scroll left : ", scrollableDiv.scrollLeft ,"Scroll round : ", scrollRound , "round 0 scroll : ", round0Scroll , "round 1 scroll : ", round1Scroll);
-      
-      
-      if(scrollableDiv.scrollLeft==0){
-        console.log("scrolled left")
+
+      console.log(
+        "Scroll left : ",
+        scrollableDiv.scrollLeft,
+        "Scroll round : ",
+        scrollRound,
+        "round 0 scroll : ",
+        round0Scroll,
+        "round 1 scroll : ",
+        round1Scroll
+      );
+
+      if (scrollableDiv.scrollLeft == 0) {
+        console.log("scrolled left");
         scrollableDiv.scrollLeft += scrollAmount;
-      }else  if(!(round0Scroll==round1Scroll)){
+      } else if (!(round0Scroll == round1Scroll)) {
         scrollableDiv.scrollLeft += scrollAmount;
-      }else{
+      } else {
         scrollableDiv.scrollLeft = 0;
       }
-      
-      
-      
+
       console.log(
         scrollableDiv.scrollLeft,
         scrollableDiv.scrollWidth - scrollableDiv.clientWidth
-        );
-        
-        
-        
-        
-        
-        // Check if the scroll reaches the end and reset to the beginning
-        //   if (
-          //     scrollableDiv.scrollLeft >=
-          //     scrollableDiv.scrollWidth - scrollableDiv.clientWidth ||
-          //     scrollableDiv.scrollLeft == 1849.5999755859375
-          //     ) {
-            //   // scrollableDiv.scrollLeft -= scrollAmount;
-            //   scrollableDiv.scrollLeft = 0;
-            
-            // }
-            
-            
-            
-            
-            
-          } else {
-            // scrollableDiv.scrollLeft += scrollAmount;
-            // const scrollAmount = 1200; 
-            
-            
-            if(scrollRound == 0){
-              round0Scroll = scrollableDiv.scrollLeft;
-              scrollRound = 1
-            }else{
-              round1Scroll = scrollableDiv.scrollLeft;
-              scrollRound = 0;
+      );
+
+      // Check if the scroll reaches the end and reset to the beginning
+      //   if (
+      //     scrollableDiv.scrollLeft >=
+      //     scrollableDiv.scrollWidth - scrollableDiv.clientWidth ||
+      //     scrollableDiv.scrollLeft == 1849.5999755859375
+      //     ) {
+      //   // scrollableDiv.scrollLeft -= scrollAmount;
+      //   scrollableDiv.scrollLeft = 0;
+
+      // }
+    } else {
+      // scrollableDiv.scrollLeft += scrollAmount;
+      // const scrollAmount = 1200;
+
+      if (scrollRound == 0) {
+        round0Scroll = scrollableDiv.scrollLeft;
+        scrollRound = 1;
+      } else {
+        round1Scroll = scrollableDiv.scrollLeft;
+        scrollRound = 0;
       }
 
       console.log("Scroll round : ", scrollRound);
-
-
 
       console.log(
         scrollableDiv.scrollLeft,
@@ -512,12 +602,12 @@
       //   scrollableDiv.scrollLeft = 0;
       // }
 
-      if(scrollableDiv.scrollLeft==0){
-        console.log("scrolled left")
+      if (scrollableDiv.scrollLeft == 0) {
+        console.log("scrolled left");
         scrollableDiv.scrollLeft += scrollAmount;
-      }else  if(!(round0Scroll==round1Scroll)){
+      } else if (!(round0Scroll == round1Scroll)) {
         scrollableDiv.scrollLeft += scrollAmount;
-      }else{
+      } else {
         scrollableDiv.scrollLeft = 0;
       }
     }
