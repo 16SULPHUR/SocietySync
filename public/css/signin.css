@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -24,24 +26,23 @@ nav div .hamburger {
 }
 
 div.logo img {
-  height: 3rem;
+  height: 2rem;
 }
 
 div.logo span {
   font-weight: 500;
   line-height: normal;
+  font-size: smaller;
+  font-family: 'Roboto Slab', serif;
 }
 
-div.links ul li {
+nav ul li {
   /* color: rgb(167, 116, 40); */
   font-weight: 700;
 }
 
-nav .small-screens-links {
-  display: none;
-}
 
-div.links ul li :hover {
+nav ul li :hover {
   /* background-color: rgba(221, 221, 221, 0.627); */
   /* background-color: rgba(146, 177, 254, 0.422); */
   border-radius: 7px;
@@ -57,56 +58,8 @@ nav .btn:hover {
   color: rgb(255, 255, 255);
 }
 
-main {
-  margin-top: 4rem;
-}
-
-div .user{
-  display: flex;
-  flex-direction: row;
-}
-
-main .userDP {
-  /* background-color: aqua; */
-  width: fit-content;
-}
-
-div.userDP img {
-  height: 12rem;
-  /* border-color: rgb(167, 116, 40); */
-}
-
-div.events {
-  overflow: auto;
-  white-space: nowrap;
-  /* width: 69rem; */
-  width: 101%;
-}
-
-div .event {
-  display: inline-block;
-  width: 350px;
-  white-space: normal;
-  /* transition: all 2s ; */
-  /* backdrop-filter: blur(4px); */
-}
-
-.events::-webkit-scrollbar {
-  width: 0em;
-}
-
-.events {
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-}
-
-.wrapThis{
-  display: -webkit-box;
-  -webkit-line-clamp: 1
-  ; /* Limit the text to 3 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+#loginBtn{
+  display: none;
 }
 
 @media (max-width: 600px) {
@@ -159,27 +112,5 @@ div .event {
 
   nav .big-screens-links {
     display: none;
-  }
-
-  main .user{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  main .userDP img{
-    height: 9rem;
-  }
-
-  div.events {
-    overflow: auto;
-    white-space: nowrap;
-    width: 23rem;
-  }
-
-  main .grid-container{
-    column-gap: 3rem;
-    margin-left: 3rem;
   }
 }
