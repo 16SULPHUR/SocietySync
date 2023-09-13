@@ -1,0 +1,72 @@
+<div class="user flex lg:p-5 lg:gap-28 lg:px-48">
+  <!-- <div class="userDP rounded-md p-4  bg-green-300"> -->
+  <div class="userDP rounded-md p-4">
+    <img
+      class="rounded-full border-4 shadow-lg border-orange-600"
+      src="resources/user.jpg"
+      alt="Placeholder Image"
+    />
+  </div>
+
+  <!-- <div class="userInfo w-9/12 bg-blue-300 p-4"> -->
+  <div class="userInfo lg:w-8/12 p-4">
+    <div class="container mx-auto lg:px-4">
+      <div
+        class="grid-container bg-white rounded-lg shadow-sm py-2 lg:px-6 grid grid-cols-2 gap-4"
+      >
+        <!-- User Name -->
+        <div>
+          <label class="text-gray-600 h-32 font-medium">Name:</label>
+          <p class="text-gray-800">Ankit Shashikant Patil</p>
+        </div>
+
+        <!-- Flat Number -->
+        <div>
+          <label class="text-gray-600 h-32 font-medium">Flat:</label>
+          <p class="text-gray-800"><%= username %></p>
+        </div>
+
+        <!-- Phone Number -->
+        <div>
+          <label class="text-gray-600 h-32 font-medium">Phone:</label>
+          <p class="text-gray-800">+91 12345-67890</p>
+        </div>
+
+        <!-- Intercom Number -->
+        <div>
+          <label class="text-gray-600 h-32 font-medium">Intercom:</label>
+          <p class="text-gray-800">1234</p>
+        </div>
+
+        <!-- Maintenance Status -->
+        <div class="col-span-2">
+          <label class="text-gray-600 h-32 font-medium"
+            >Maintenance Status:</label
+          >
+          <br />
+          <!-- <p class="text-green-600 font-semibold">Paid</p> -->
+          <span class="text-green-600 font-semibold">Paid</span> /
+          <span class="text-red-600 font-semibold"
+            >Pending from 1 month(s)</span
+          >
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="text-gray-600 h-32 font-medium">Email:</label>
+          <p class="text-gray-800">akpatil51340@gmail.com</p>
+        </div>
+
+        <!-- Edit Button -->
+        <div class="sm:col-span-1 col-span-2">
+          <button
+            class="editbtn sm:block w-fit btn font-bold py-2 px-4 rounded bg-blue-500 text-white hover:bg-blue-600"
+            id="editbtn"
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

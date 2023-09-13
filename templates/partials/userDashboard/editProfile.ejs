@@ -1,0 +1,40 @@
+      <!-- Profile Edit Popup -->
+      <div id="profileEditModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+        <div class="modal-overlay absolute inset-0 bg-gray-500 opacity-50"></div>
+        <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+          <!-- Add your profile editing form here -->
+          <div class="modal-content py-4 text-left px-6">
+            <!-- Profile editing form goes here -->
+            <!-- Example form fields -->
+
+            <!-- Display the image only when a file is selected -->
+      <div id="imageContainer" class="text-center mb-4">
+        <img src="" alt="preview" id="previewImage" class="rounded-full h-44 w-44 mx-auto border-4 shadow-lg border-orange-600">
+      </div>
+
+            <label for="profilePhoto" class="block text-gray-700 text-sm font-bold mb-2">Profile Photo:</label>
+<input type="file" id="profilePhoto" name="profilePhoto" class="w-full border border-gray-300 rounded-md p-2 mb-4">
+
+            
+            <label for="flat" class="block text-gray-700 text-sm font-bold mb-2">Flat:</label>
+            <input value="<%= username %>" type="text" id="flat" name="flat" class="w-full border border-gray-300 rounded-md p-2 mb-4" readonly>
+           
+            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+            <input type="text" id="name" name="name" class="w-full border border-gray-300 rounded-md p-2 mb-4">
+            
+            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+            <input type="email" id="email" name="email" class="w-full border border-gray-300 rounded-md p-2 mb-4">
+      
+            <!-- Add more form fields as needed -->
+      
+            <div class="flex justify-end">
+              <button id="closeModal" class="modal-close px-4 py-2 bg-gray-400 hover:bg-gray-600 text-white rounded-md focus:outline-none focus:shadow-outline-gray">
+                Close
+              </button>
+              <button id="saveChanges" class="modal-close px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md focus:outline-none focus:shadow-outline-blue ml-2">
+                Save Changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>

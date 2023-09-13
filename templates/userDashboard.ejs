@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body style="user-select: none;">
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+
+    <main class="py-8">
+      <%- include('partials/userDashboard/editProfile') %>
+      
+      <!-- USER DP and INFO -->
+      <%- include('partials/userDashboard/userDPandINFO') %>
+
+      
+
+      <!-- events here -->
+      <%- include('partials/userDashboard/_events') %>
+
+      <!-- Noticeboard and features -->
+      <%- include('partials/userDashboard/_noticeANDFeatures') %>
+      
+    </main>
+
+    <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>
+

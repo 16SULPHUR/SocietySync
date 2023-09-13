@@ -13,8 +13,13 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    unique: true,
     required: true,
+  },
+  mobile: {
+    type: Number,
+  },
+  profilePhoto: {
+    type: Buffer, // Store binary data for the image
   },
   isAdmin:{
     type:Boolean,

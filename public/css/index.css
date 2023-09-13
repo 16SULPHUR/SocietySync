@@ -47,16 +47,6 @@ div.links ul li :hover {
   border-radius: 7px;
 }
 
-nav .btn {
-  color: rgb(34, 34, 34);
-  display: block;
-}
-
-nav .btn:hover {
-  /* background-color: rgba(167, 116, 40, 0.863); */
-  color: rgb(255, 255, 255);
-}
-
 main {
   margin-top: 4rem;
 }
@@ -146,8 +136,6 @@ div .event {
   }
 
   nav .loginBtn {
-    /* display: block; */
-    display: none;
     margin-bottom: 1rem;
   }
 

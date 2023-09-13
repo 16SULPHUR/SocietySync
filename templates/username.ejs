@@ -77,22 +77,16 @@
       <p class="w-full text-center mb-6 font-normal">Use your Flat Number</p>
   
       <!-- Username Form -->
-      <form class="mb-4">
+      <form method="post" action="http://127.0.0.1:3000/signin/password" class="mb-4" style="user-select: none;">
         <label class="block text-sm font-medium mb-1">Username</label>
-        <input type="text" class="w-full px-3 py-2 rounded-md border" placeholder="Enter your username">
+        <input value="b4101" name="username" type="text" class="w-full px-3 py-2 rounded-md border" placeholder="Enter your username" required pattern="[A-Da-d][1-4][1-5][0][1-4]" title="Username should be in the format 'A3103' or 'd3103'">
 
         <p class="username-note text-gray-400 text-sm mt-4">Format: BuildingNumber+FlatNumber (e.g. B3103)</p>
+        
+        <button type="submit" class="mt-6 w-full font-bold bg-green-300/[.2] text-green-600 py-2 rounded-md hover:bg-green-300/[.5]">
+          Next
+        </button>
       </form>
-  
-      <!-- Password Form -->
-      <!-- <form>
-        <label class="block text-sm font-medium mb-1">Password</label>
-        <input type="password" class="w-full px-3 py-2 rounded-md border" placeholder="Enter your password">
-      </form> -->
-  
-      <button class="mt-6 w-full font-bold bg-green-300/[.2] text-green-600 py-2 rounded-md hover:bg-green-300/[.5]">
-        Next
-      </button>
     </div>
 
   </main>
