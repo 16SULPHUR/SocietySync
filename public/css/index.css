@@ -58,11 +58,11 @@ div .user{
 
 main .userDP {
   /* background-color: aqua; */
-  width: fit-content;
+  /* width: fit-content; */
 }
 
 div.userDP img {
-  height: 12rem;
+  /* height: 12rem; */
   /* border-color: rgb(167, 116, 40); */
 }
 
@@ -157,7 +157,7 @@ div .event {
   }
 
   main .userDP img{
-    height: 9rem;
+    /* height: 9rem; */
   }
 
   div.events {

@@ -19,8 +19,10 @@ const userSchema = new mongoose.Schema({
     type: Number,
   },
   profilePhoto: {
-    type: Buffer, // Store binary data for the image
+    type: Buffer,
+    default: Buffer.alloc(0), // Initialize with an empty buffer
   },
+  
   isAdmin:{
     type:Boolean,
     default:false

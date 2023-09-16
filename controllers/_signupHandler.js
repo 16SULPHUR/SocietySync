@@ -1,4 +1,7 @@
 const bcrypt = require("bcryptjs");
+const fs = require("fs");
+const path = require("path");
+
 
 async function signupHandler(req, res, user) {
   const body = req.body;
@@ -12,6 +15,7 @@ async function signupHandler(req, res, user) {
       email: body.email,
       password: hashedPassword,
       isAdmin: body.isAdmin,
+      profilePhoto: fs.readFileSync(path.join('F:/PROGRAMING/WEB DEVELOPMENT/SocietySync/public/resources/user.jpg'))
     });
 
     await newUser.save().then(() => {

@@ -5,7 +5,6 @@ async function _usernameHandler(req, res, User){
     let user = convertUsername(body.username);
 
     const result = await User.find({username:body.username});
-    console.log("result===="+result[0]);
 
     res.render("password", {user:user, rawUser:body.username});
 }

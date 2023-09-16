@@ -53,16 +53,20 @@ async function main() {
 const signinRouter = require("./routes/signin");
 const handlePassRouter = require("./routes/handlePassword");
 const signupRouter = require("./routes/signup");
+const updateProfileRouter = require("./routes/updateProfile");
 const signinHandler = require("./controllers/_signinHandler");
 
 app.use("/signin", signinRouter);
 app.use("/handlePassword", handlePassRouter);
 app.use("/signup", signupRouter);
+app.use("/profilephoto", signupRouter);
+app.use("/updateProfile", updateProfileRouter);
+
+
+
 
 app.get("/", requireLogin, (req, res) => {
   const user = req.session.user.userDetails; // Access user data from the session
-  console.log("user == ");
-  console.log(user);
 
   if (user.isAdmin) {
     // Render the dashboard view and send user data
@@ -70,13 +74,17 @@ app.get("/", requireLogin, (req, res) => {
       username: convertUsername(user.username),
       email: user.email,
       isLogedin: true,
+      id:user._id,
+      profilePhoto: user.profilePhoto,
     });
   } else {
     // Render the dashboard view and send user data
     res.render("userDashboard", {
-      username: convertUsername(user.username),
+      username:user.username,
+      flat: convertUsername(user.username),
       email: user.email,
       isLogedin: true,
+      id:user._id,
     });
   }
 });
