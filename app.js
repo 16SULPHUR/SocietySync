@@ -8,6 +8,20 @@ const user = require("./modals/User");
 const app = express();
 const port = 3000;
 
+require('dotenv').config();
+
+const uri = process.env.MONGODB_URI;
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Rest of your application code
+
+
+
+
 app.set("view engine", "ejs");
 
 app.use(
