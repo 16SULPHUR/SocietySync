@@ -16,14 +16,16 @@
         <!-- Example form fields -->
   
         <!-- Display the image only when a file is selected -->
-        <div id="imageContainer" class="text-center mb-4">
+        <div class="flex items-center justify-center ">
+        <div id="imageContainer" class="mb-4 rounded-full overflow-hidden h-44 w-44">
           <img
-            src=""
+            src="uploads/<%= username %>_profile.jpg"
             alt="preview"
             id="previewImage"
-            class="rounded-full h-44 w-44 mx-auto border-4 shadow-lg border-orange-600"
+            class="rounded-full border-4 shadow-lg border-orange-600 h-full w-full object-cover"
           />
-        </div>
+      </div>
+    </div>
   
         <label
           for="profilePhoto"

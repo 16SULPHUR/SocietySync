@@ -1,12 +1,14 @@
 <div class="user flex lg:p-5 lg:gap-28 lg:px-48">
   <!-- <div class="userDP rounded-md p-4  bg-green-300"> -->
-  <div class="userDP rounded-md p-4">
-    <img
-      class="rounded-full border-4 shadow-lg border-orange-600 h-44 w-44"
-      src="uploads/<%= username %>_profile.jpg"
-      alt="Placeholder Image"
-    />
+    <div class="userDP rounded-full overflow-hidden h-44 w-44">
+      <img
+        class="rounded-full border-4 shadow-lg border-orange-600 h-full w-full object-cover"
+        src="uploads/<%= username %>_profile.jpg"
+        alt="Profile Image"
+      />
   </div>
+  
+    
 
   <!-- <div class="userInfo w-9/12 bg-blue-300 p-4"> -->
   <div class="userInfo lg:w-8/12 p-4">
