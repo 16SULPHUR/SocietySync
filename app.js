@@ -10,17 +10,11 @@ const port = 3000;
 
 require('dotenv').config();
 
-const uri = process.env.MONGODB_URI;
+const connectDB = require('./connectMongo')
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+connectDB()
 
 // Rest of your application code
-
-
-
 
 app.set("view engine", "ejs");
 
