@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/admin.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen">
+    <%- include('partials/adminDashboard/_header') %>
+    <div class="flex">
+      <%- include('partials/adminDashboard/_sidebar1') %> <%-
+      include('partials/adminDashboard/_sidebar2') %>
+    </div>
+
+    <main class="py-8">
+      <!-- Edit notice modal -->
+      <div
+        id="editNoticeModal"
+        class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      >
+        <div class="modal-content bg-white w-96 rounded-md shadow-lg p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold">Edit Notice</h2>
+            <button
+              id="closeEditModal"
+              class="text-gray-600 hover:text-red-500 text-lg focus:outline-none"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <form action="/manageNotices" method="post" id="editNoticeForm">
+            <div class="mb-4">
+
+              <input
+                type="hidden"
+                id="id"
+                name="id"
+              />
+
+
+
+              <label
+                for="editTitle"
+                class="block text-gray-600 text-sm font-medium mb-2"
+                >Title:</label
+              >
+              <input
+                type="text"
+                id="editTitle"
+                name="title"
+                required
+                class="w-full border border-gray-300 rounded-md p-2"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="editContent"
+                class="block text-gray-600 text-sm font-medium mb-2"
+                >Content:</label
+              >
+              <textarea
+                id="editContent"
+                name="content"
+                required
+                class="w-full h-32 border border-gray-300 rounded-md p-2"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="block w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md py-2"
+            >
+              Update Notice
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <table class="w-full max-w-screen-lg m-auto">
+        <thead>
+          <tr>
+            <th
+              class="py-2 px-3 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+            >
+              Title
+            </th>
+            <th
+              class="py-2 px-1 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+            >
+              Content
+            </th>
+            <th
+              class="py-2 px-3 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% allNotices.forEach(notice => { %>
+          <tr>
+            <td class="py-2 px-3 border border-gray-300">
+              <%= notice.title %>
+            </td>
+            <td class="py-2 px-1 border border-gray-300">
+              <%= notice.content %>
+            </td>
+            <td
+              class="py-2 px-3 border border-gray-300 flex space-x-2 justify-around"
+            >
+              <!-- <a
+                href="/notices/edit/<%= notice._id %>"
+                class="text-blue-500 hover:underline"
+              > -->
+              <button
+                id="<%= notice._id %>"
+                class="bg-blue-200/50 hover:bg-blue-600 text-blue-600 font-semibold hover:text-white rounded-md px-2 py-1 edit-notice-button"
+                data-notice-id="<%= notice._id %>"
+                data-notice-title="<%= notice.title %>"
+                data-notice-content="<%= notice.content %>"
+                onclick = "openModal(this.id)"
+              >
+                Edit
+              </button>
+
+              <!-- </a> -->
+              <form
+                action="/manageNotices"
+                method="POST"
+                onsubmit="return confirm('Are you sure? This action cannot be undone');"
+              >
+              <input type="hidden" name="deleteId" value="<%= notice._id %>">
+                <button
+                  type="submit"
+                  class="bg-red-200/50 hover:bg-red-600 text-red-600 font-semibold hover:text-white rounded-md px-2 py-1"
+                >
+                  Delete
+                </button>
+              </form>
+              <!-- <form
+                action="/notices/change-status/<%= notice._id %>"
+                method="POST"
+              >
+                <button
+                  type="submit"
+                  class="bg-green-200/50 hover:bg-green-600 text-green-600 font-semibold hover:text-white rounded-md px-2 py-1"
+                >
+                  Change Status
+                </button>
+              </form> -->
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </main>
+
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+    <script src="js/admin.js"></script>
+
+    <script>
+      // JavaScript to control the modal behavior
+
+      // Open the modal when the Edit button is clicked
+      function openModal(id){
+        document.getElementById("editNoticeModal").style.display = "block";
+        const button = document.getElementById(id)
+
+          const noticeId = button.getAttribute("data-notice-id");
+          const noticeTitle = button.getAttribute("data-notice-title");
+          const noticeContent = button.getAttribute("data-notice-content");
+
+          document.getElementById("id").value = noticeId;
+          document.getElementById("editTitle").value = noticeTitle;
+          document.getElementById("editContent").value = noticeContent;
+        };
+
+      // Close the modal when the Close button is clicked
+      document
+        .getElementById("closeEditModal")
+        .addEventListener("click", function () {
+          document.getElementById("editNoticeModal").style.display = "none";
+        });
+
+      // Handle the form submission to update the notice
+      // document
+      //   .getElementById("editNoticeForm")
+      //   .addEventListener("submit", function (event) {
+      //     event.preventDefault();
+      //     // Add your code to update the notice here
+
+      //     // Close the modal
+      //     document.getElementById("editNoticeModal").style.display = "none";
+      //   });
+
+      // Add an event listener to all "Edit" buttons with the class edit-notice-button
+      // const editButtons = document.querySelectorAll(".edit-notice-button");
+      // editButtons.forEach((button) => {
+      //   button.addEventListener("click", (event) => {
+      //     // Prevent the default link behavior
+      //     event.preventDefault();
+
+      //     // Get the notice ID from the data attribute
+      //     const noticeId = button.getAttribute("data-notice-id");
+      //     const noticeTitle = button.getAttribute("data-notice-title");
+      //     const noticeContent = button.getAttribute("data-notice-content");
+
+      //     const modalInput = document.getElementById("editTitle")
+      //     const modalContent = document.getElementById("editContent")
+
+      //     modalInput.value = noticeTitle;
+      //     modalContent.value = noticeContent;
+      //   });
+      // });
+
+      // Your existing code to close the modal (e.g., clicking the Close button)
+      // const closeEditModalButton = document.getElementById("closeEditModal");
+      // closeEditModalButton.addEventListener("click", () => {
+      //   document.getElementById("editNoticeModal").classList.add("hidden");
+      // });
+    </script>
+  </body>
+</html>

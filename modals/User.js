@@ -6,10 +6,12 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
+  name:{
+    type:String
+  },
   email: {
     type: String,
     unique: true,
-    required: true,
   },
   password: {
     type: String,
@@ -18,15 +20,15 @@ const userSchema = new mongoose.Schema({
   mobile: {
     type: Number,
   },
-  profilePhoto: {
-    type: Buffer,
-    default: Buffer.alloc(0), // Initialize with an empty buffer
-  },
-  
   isAdmin:{
     type:Boolean,
     default:false
-  }
+  },
+  hasProfilePhoto:{
+    type:Boolean,
+    default:false
+  },
+  maintenance: { type: mongoose.Schema.Types.ObjectId, ref: 'Maintenance' }
 });
 
 const user = mongoose.model("user", userSchema);

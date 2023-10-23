@@ -161,7 +161,7 @@ hambtn.addEventListener("click", () => {
   });
   
   saveChanges.addEventListener('click', () => {
-    profileEditModal.classList.add('hidden');
+    // profileEditModal.classList.add('hidden');
 
     console.log("changes saved")
   });
@@ -185,3 +185,14 @@ hambtn.addEventListener("click", () => {
       reader.readAsDataURL(selectedFile);
     }
   });
+
+
+
+  // An array of available Tailwind CSS classes
+const availableColors = ["fuchsia-600", "orange-600", "yellow-600", "blue-600", "green-600", "red-600"];
+
+function getRandomColor() {
+  // Generate a random index to select a color from the availableColors array
+  const randomIndex = Math.floor(Math.random() * availableColors.length);
+  return availableColors[randomIndex];
+}

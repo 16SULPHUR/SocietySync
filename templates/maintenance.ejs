@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/maintenance.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body style="user-select: none">
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+
+    <main class="py-8 pt-20 sm:pt-1">
+      <div class="sm:p-20 p-4 container mx-auto">
+        <div class="overflow-x-auto">
+          <table class="min-w-full border rounded rounded-lg">
+            <thead class="bg-gray-800 text-white">
+              <tr>
+                <th class="py-3 px-4 sm:px-6 md:px-8 text-left">Month</th>
+                <th class="py-3 px-4 sm:px-6 md:px-8 text-left">Amount</th>
+                <th class="py-3 px-4 sm:px-6 md:px-8 text-left">Due Date</th>
+                <th class="py-3 px-4 sm:px-6 md:px-8 text-left">Status</th>
+                <th class="py-3 px-4 sm:px-6 md:px-8 text-left">Action</th>
+              </tr>
+            </thead>
+            <tbody class="bg-gray-200">
+              <!-- Data for January -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.jan.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.jan.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.jan.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.jan.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for February -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.feb.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.feb.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.feb.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.feb.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for March -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.mar.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.mar.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.mar.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.mar.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for January -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.apr.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.apr.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.apr.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.apr.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for February -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.may.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.may.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.may.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.may.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for March -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.jun.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.jun.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.jun.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.jun.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.jul.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.jul.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.jul.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.jul.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.aug.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.aug.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.aug.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.aug.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for January -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.sep.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.sep.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.sep.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.sep.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for February -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.oct.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.oct.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.oct.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.oct.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <!-- Data for March -->
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.nov.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.nov.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.nov.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.nov.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.dec.month%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%- maintenanceDetails.amount %>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-
+                  maintenanceDetails.monthlyDetails.dec.due.toLocaleDateString('en-US',
+                  { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                </td>
+
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <%-maintenanceDetails.monthlyDetails.dec.status%>
+                </td>
+                <td class="py-3 px-4 sm:px-6 md:px-8">
+                  <form action="/maintenancePayment" method="post">
+                    <input
+                      type="hidden"
+                      name="username"
+                      value=" <%- maintenanceDetails.username %>"
+                    />
+                    <input
+                      type="hidden"
+                      name="month"
+                      value=" <%- maintenanceDetails.monthlyDetails.dec.month %>"
+                    />
+                    <button
+                      class="bg-blue-500 hover:bg-blue-600 text-white px-2 py-1 rounded"
+                      type="submit"
+                    >
+                      Pay Now
+                    </button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer>
+
+    <script src="js/header.js"></script>
+    <script src="js/maintenance.js"></script>
+  </body>
+</html>

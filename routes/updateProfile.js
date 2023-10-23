@@ -26,7 +26,7 @@ const upload = multer({ storage });
 
 
 router.post('/',upload.single('profilePhoto'), (req, res) => {
-  updateProfileHandler(req,res,user)
+  updateProfileHandler(req,res,user);
 }).get("/",(req,res)=>{
     res.send("Get request to profile update page")
 });

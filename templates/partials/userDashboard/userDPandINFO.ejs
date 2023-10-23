@@ -3,8 +3,12 @@
     <div class="userDP rounded-full overflow-hidden h-44 w-44">
       <img
         class="rounded-full border-4 shadow-lg border-orange-600 h-full w-full object-cover"
-        src="uploads/<%= username %>_profile.jpg"
         alt="Profile Image"
+      <% if(!hasProfilePhoto){ %>
+        src="resources/user.jpg"
+      <% }else{ %>
+        src="uploads/<%= username %>_profile.jpg"
+        <% } %>
       />
   </div>
   
@@ -19,7 +23,7 @@
         <!-- User Name -->
         <div>
           <label class="text-gray-600 h-32 font-medium">Name:</label>
-          <p class="text-gray-800">Ankit Shashikant Patil</p>
+          <p class="text-gray-800"><%= name %></p>
         </div>
 
         <!-- Flat Number -->
@@ -31,7 +35,11 @@
         <!-- Phone Number -->
         <div>
           <label class="text-gray-600 h-32 font-medium">Phone:</label>
-          <p class="text-gray-800">+91 12345-67890</p>
+          <% if(phone==""){ %>
+            <p class="text-gray-800">Add Email</p>
+          <% }else{ %>
+            <p class="text-gray-800">+91 <%= phone %></p>
+            <%}%>
         </div>
 
         <!-- Intercom Number -->
@@ -56,7 +64,15 @@
         <!-- Email -->
         <div>
           <label class="text-gray-600 h-32 font-medium">Email:</label>
-          <p class="text-gray-800">akpatil51340@gmail.com</p>
+
+          <% if(email==""){ %>
+            <p class="text-gray-800">Add Email</p>
+          <% }else{ %>
+            <p class="text-gray-800"><%= email %></p>
+            <%}%>
+
+
+          
         </div>
 
         <!-- Edit Button -->

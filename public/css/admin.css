@@ -12,6 +12,10 @@
     user-select: none;
   }
   
+  main {
+    margin-top: 4rem;
+  }
+  
   div .user{
     display: flex;
     flex-direction: row;
@@ -19,11 +23,11 @@
   
   main .userDP {
     /* background-color: aqua; */
-    width: fit-content;
+    /* width: fit-content; */
   }
   
   div.userDP img {
-    height: 12rem;
+    /* height: 12rem; */
     /* border-color: rgb(167, 116, 40); */
   }
   
@@ -81,6 +85,7 @@
       justify-items: stretch;
       align-items: center;
     }
+    
   
     nav .small-screens-links {
       margin-top: 0rem;
@@ -118,7 +123,7 @@
     }
   
     main .userDP img{
-      height: 9rem;
+      /* height: 9rem; */
     }
   
     div.events {

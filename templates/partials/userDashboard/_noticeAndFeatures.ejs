@@ -5,74 +5,26 @@
     <div class="container mx-auto mt-8 px-4 sm:w-7/12 w-10/12">
       <h2 class="text-3xl font-semibold mb-4">Notice Board</h2>
 
-      <!-- Notice 1 -->
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-red-600">
-          Important Notice - COVID-19 Guidelines
-        </h3>
-        <p class="text-gray-600 wrapThis">
-          In light of the current COVID-19 situation, please follow the
-          guidelines provided by the authorities to ensure the safety and
-          well-being of the community.
-        </p>
-      </div>
+      <%- console.log(allNotices); %>
 
-      <!-- Notice 2 -->
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-green-600">
-          Upcoming Maintenance Activity
-        </h3>
-        <p class="text-gray-600 wrapThis">
-          There will be a scheduled maintenance activity on [Date] from
-          [Start Time] to [End Time]. Please make necessary arrangements.
-        </p>
-      </div>
-
-      <!-- Notice 3 -->
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-blue-600">
-          Community Event - Family Day
-        </h3>
-        <p class="text-gray-600 wrapThis">
-          Join us for the Family Day event on [Date]. There will be games,
-          food stalls, and fun activities for all ages. Don't miss it!
-        </p>
-      </div>
-
-      <!-- Notice 1 -->
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-yellow-600">
-          Important Notice - COVID-19 Guidelines
-        </h3>
-        <p class="text-gray-600 wrapThis">
-          In light of the current COVID-19 situation, please follow the
-          guidelines provided by the authorities to ensure the safety and
-          well-being of the community.
-        </p>
-      </div>
-
-      <!-- Notice 2 -->
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-orange-600">
-          Upcoming Maintenance Activity
-        </h3>
-        <p class="text-gray-600 wrapThis">
-          There will be a scheduled maintenance activity on [Date] from
-          [Start Time] to [End Time]. Please make necessary arrangements.
-        </p>
-      </div>
-
-      <!-- Notice 3 -->
-      <div class="bg-white shadow-md rounded-lg p-4 mb-4">
-        <h3 class="text-xl font-semibold mb-2 text-fuchsia-600">
-          Community Event - Family Day
-        </h3>
-        <p class="text-gray-600 wrapThis">
-          Join us for the Family Day event on [Date]. There will be games,
-          food stalls, and fun activities for all ages. Don't miss it!
-        </p>
-      </div>
+    
+      <% allNotices.forEach(notice => { %>
+        <% const colors = ["text-fuchsia-600", "text-orange-600", "text-yellow-600", "text-blue-600", "text-green-600", "text-red-600"]; %>
+        <% const randomColor = colors[Math.floor(Math.random() * colors.length)]; %>
+    
+        <div class="bg-white shadow-md rounded-lg p-4 mb-4">
+          <h3 class="text-xl font-semibold mb-2 <%= randomColor %>">
+            <%= notice.title %>
+          </h3>
+          <p class="text-gray-600 wrapThis">
+            <%= notice.content %>
+          </p>
+        </div>
+      <% }); %>
     </div>
+    
+      
+    
 
     <!-- features -->
 
@@ -113,17 +65,16 @@
             <div class="z-10">
               <!-- Use a higher z-index for the content to appear on top of the icon -->
               <h3 class="text-xl font-semibold mb-2">
-                Rules and Regulations
+                Maintenance
               </h3>
               <p>
-                Explore the rules and regulations that govern the society.
+                Effortlessly pay society maintenance dues online for hassle-free transactions.
               </p>
-              <button
-                class="mt-2 px-4 py-2 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded"
-              >
-                Learn More
-              </button>
-              <!-- Add more details and buttons as needed -->
+              <form method="POST" action="/maintenance">
+                <input type="hidden" name="id" value="<%= id %>">
+                <button type="submit" class="mt-2 px-4 py-2 bg-blue-500 hover-bg-blue-600 text-white font-semibold rounded">
+                    Pay now
+                </button>
             </div>
           </div>
 

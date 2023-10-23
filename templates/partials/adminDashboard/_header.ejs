@@ -5,16 +5,65 @@
           <i class="fa-solid fa-bars fa-xl" style="color: #184490"></i>
         </button>
       </div>
-      <a class="logoLink" href=""
-        ><div class="logo flex gap-4">
+      <a class="logoLink " href="/"
+        ><div class="logo flex gap-4 ">
           <img class="h-8 self-center" src="resources/logo.png" alt="Logo" />
           <span class="text-sm">SENTOSA<br />ENCLAVE</span>
         </div></a
       >
-      <div class="ham2">
+      <div class="ham2 sm:hidden block">
         <button id="hamBtn2" onclick="expandSidebar(this.id)">
           <i class="fa-solid fa-bars fa-xl" style="color: #184490"></i>
         </button>
       </div>
+
+      <div id="rowLinks" class="rowLinks sm:block hidden self-center">
+        <ul class="flex flex-row gap-4 self-center font-semibold">
+          <li>
+            <a
+              class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2] rounded-lg"
+              href=""
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2] rounded-lg"
+              href=""
+              >Admin Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-red-600 hover:bg-red-300/[.2] rounded-lg"
+              href=""
+              >Events</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2] rounded-lg"
+              href=""
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2] rounded-lg"
+              href=""
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <a href="/logout" class="self-center sm:block hidden"
+        ><button
+          class="loginBtn sm:block hidden sm:w-fit w-full btn font-bold py-2 px-4 rounded bg-emerald-500 text-white hover:bg-emerald-600"
+          id="logoutbtn"
+        >
+          Log out
+        </button></a
+      >
     </div>
   </header>

@@ -5,18 +5,9 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const user = require("./modals/User");
+const maintenance = require("./modals/Maintenance");
 const app = express();
 const port = 3000;
-
-require('dotenv').config();
-
-const connectDB = require('./connectMongo')
-
-connectDB()
-
-// Rest of your application code
-
-app.set("view engine", "ejs");
 
 app.use(
   session({
@@ -28,6 +19,18 @@ app.use(
     },
   })
 );
+
+require('dotenv').config();
+
+// const connectDB = require('./connectMongo')
+
+// connectDB()
+
+// Rest of your application code
+
+app.set("view engine", "ejs");
+
+
 
 function requireLogin(req, res, next) {
   if (req.session.user) {
@@ -62,6 +65,10 @@ const signinRouter = require("./routes/signin");
 const handlePassRouter = require("./routes/handlePassword");
 const signupRouter = require("./routes/signup");
 const updateProfileRouter = require("./routes/updateProfile");
+const maintenanceRouter = require("./routes/maintenance");
+const maintenancePaymentRouter = require("./routes/maintenancePayment");
+const addNoticeRouter = require("./routes/addNotice");
+const manageNoticesRouter = require("./routes/manageNotices");
 const signinHandler = require("./controllers/_signinHandler");
 
 app.use("/signin", signinRouter);
@@ -69,33 +76,61 @@ app.use("/handlePassword", handlePassRouter);
 app.use("/signup", signupRouter);
 app.use("/profilephoto", signupRouter);
 app.use("/updateProfile", updateProfileRouter);
+app.use("/maintenance", maintenanceRouter);
+app.use("/maintenancePayment", maintenancePaymentRouter);
+app.use("/addNotice", addNoticeRouter);
+app.use("/manageNotices", manageNoticesRouter);
 
 
 
 
-app.get("/", requireLogin, (req, res) => {
+app.get("/", requireLogin, async (req, res) => {
   const user = req.session.user.userDetails; // Access user data from the session
+  const allNotices = req.session.user.allNotices;
+  const maintenanceResult = await maintenance.find({ username: user.username }).exec();
+    console.log("Maintenance result")
+    console.log(maintenanceResult)
+    console.log("all Notices:::::")
+    console.log(allNotices)
 
+
+  console.log(user)
   if (user.isAdmin) {
     // Render the dashboard view and send user data
     res.render("adminDashboard", {
-      username: convertUsername(user.username),
+      maintenanceDetails: maintenance,
+      user:user,
+      username:user.username,
+      flat: convertUsername(user.username),
       email: user.email,
+      name: user.name,
+      phone: user.mobile,
+      hasProfilePhoto:user.hasProfilePhoto,
       isLogedin: true,
       id:user._id,
-      profilePhoto: user.profilePhoto,
+      allNotices : allNotices,
     });
   } else {
     // Render the dashboard view and send user data
     res.render("userDashboard", {
+      maintenanceDetails: maintenance,
+      user:user,
       username:user.username,
       flat: convertUsername(user.username),
       email: user.email,
+      name: user.name,
+      phone: user.mobile,
+      hasProfilePhoto:user.hasProfilePhoto,
       isLogedin: true,
       id:user._id,
+      allNotices : allNotices,
     });
   }
 });
+
+app.get("/goHome", (req,res)=>{
+  res.redirect("/");
+})
 
 app.get("/logout", (req, res) => {
   req.session.destroy((err) => {
@@ -109,7 +144,7 @@ app.get("/logout", (req, res) => {
 app.post("/userDashboard", requireLogin, (req, res) => {
   // console.log(req.body)
   // res.render("index", {username:req.body.username});
-  signinHandler(req, res, user);
+  signinHandler(req, res, user, maintenance);
 });
 
 app.listen(port, () => {

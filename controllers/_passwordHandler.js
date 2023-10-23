@@ -1,9 +1,13 @@
 const bcrypt = require("bcryptjs");
 
+const Notices = require('../modals/Notice');
+
 async function passwordHandler(req,res,User) {
   const body = req.body;
   console.log("body-----" + body.username + body.password);
   const result = await User.find({ username: body.username });
+
+  const allNotices = await Notices.find();
 
   const passwordMatch = bcrypt.compareSync(body.password, result[0].password);
   if (passwordMatch) {
@@ -12,7 +16,7 @@ async function passwordHandler(req,res,User) {
     // start session
     req.session.user = {
       userDetails: userDetails,
-      // Add other relevant user data
+      allNotices: allNotices  ,
     };
 
     if (result[0].isAdmin) {

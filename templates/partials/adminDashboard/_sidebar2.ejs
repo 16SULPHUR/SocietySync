@@ -1,12 +1,54 @@
-<sidebar id="sidebar2" class="w-screen h-fit z-50 fixed bg-white shadow-lg">
-    <div class="flex justify-between me-6 flex-row-reverse">
-      <button onclick="w3_close('sidebar2')" class="text-4xl mt-4">
-        &times;
-      </button>
-    </div>
+<sidebar id="sidebar2" class="mt-16 z-0 w-screen h-fit fixed bg-white shadow-lg sm:hidden">
   
-    <div class="navigation p-4 mt-6 overflow-y-scroll">
-      
+    <div class="navigation p-4 overflow-y-scroll">
+      <ul
+          class="flex flex-col gap-4 self-center items-center font-semibold"
+        >
+          <li>
+            <a
+              class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2] rounded-lg"
+              href=""
+              >Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2] rounded-lg"
+              href=""
+              >Admin Dashboard</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-red-600 hover:bg-red-300/[.2] rounded-lg"
+              href=""
+              >Events</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2] rounded-lg"
+              href=""
+              >Gallery</a
+            >
+          </li>
+          <li>
+            <a
+              class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2] rounded-lg"
+              href=""
+              >Contact</a
+            >
+          </li>
+        </ul>
+
+        <a href="/logout" class="self-center sm:hidden block mt-4"
+        ><button
+          class="w-fit loginBtn sm:hidden block sm:w-fit w-full btn font-bold py-2 px-4 rounded bg-emerald-500 text-white hover:bg-emerald-600"
+          id="logoutbtn"
+        >
+          Log out
+        </button></a
+      >
     </div>
   </sidebar>
   

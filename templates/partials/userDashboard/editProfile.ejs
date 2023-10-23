@@ -1,7 +1,12 @@
 <!-- Profile Edit Popup -->
 <div
   id="profileEditModal"
-  class="fixed inset-0 flex items-center justify-center z-50 hidden"
+
+  <% if(!name || !phone || !email || !hasProfilePhoto){ %>
+    class="fixed inset-0 flex items-center justify-center z-50"
+    <% }else{ %>
+      class="fixed inset-0 flex items-center justify-center z-50 hidden"
+      <% } %>
 >
   <div class="modal-overlay absolute inset-0 bg-gray-500 opacity-50"></div>
   <div
@@ -19,7 +24,11 @@
         <div class="flex items-center justify-center ">
         <div id="imageContainer" class="mb-4 rounded-full overflow-hidden h-44 w-44">
           <img
+          <% if(!hasProfilePhoto){ %>
+            src="resources/user.jpg"
+          <% }else{ %>
             src="uploads/<%= username %>_profile.jpg"
+            <%}%>
             alt="preview"
             id="previewImage"
             class="rounded-full border-4 shadow-lg border-orange-600 h-full w-full object-cover"
@@ -36,7 +45,8 @@
           type="file"
           id="profilePhoto"
           name="profilePhoto"
-          class="w-full border border-gray-300 rounded-md p-2 mb-4"
+          accept=".jpg, .jpeg"
+          class="w-full border border-gray-300 rounded-md p-2 mb-4" 
         />
   
         <label for="flat" class="block text-gray-700 text-sm font-bold mb-2"
@@ -54,21 +64,44 @@
         <label for="name" class="block text-gray-700 text-sm font-bold mb-2"
           >Name:</label
         >
-        <input
-          type="text"
-          id="name"
-          name="name"
-          class="w-full border border-gray-300 rounded-md p-2 mb-4"
-        />
+        <input required
+        type="text"
+        id="name"
+        name="name"
+        class="w-full border border-gray-300 rounded-md p-2 mb-4"
+        <% if(name) { %>
+          value="<%= name %>"
+        <% }else{ %>value=" "<% } %>
+      />
+        
+      
+      <label for="phone" class="block text-gray-700 text-sm font-bold mb-2"
+          >Phone:</label
+        >
+        <input required
+        type="tel"
+        id="phone"
+        name="phone"
+        class="w-full border border-gray-300 rounded-md p-2 mb-4"
+        <% if(phone) { %>
+          value="<%= phone %>"
+        <% }else{ %>value=" "<% } %>
+      />
+      
   
         <label for="email" class="block text-gray-700 text-sm font-bold mb-2"
           >Email:</label
         >
-        <input
+        <input required
           type="email"
           id="email"
           name="email"
           class="w-full border border-gray-300 rounded-md p-2 mb-4"
+
+          <% if (email) { %>
+            value="<%= email %>"
+          <% } %>
+
         />
   
         <!-- Add more form fields as needed -->
