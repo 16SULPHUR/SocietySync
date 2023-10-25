@@ -174,5 +174,5 @@ app.post("/userDashboard", requireLogin, (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on http://127.0.0.1:${port}`);
+  console.log(`Example app listening on http://127.0.0.1:${PORT}`);
 });
