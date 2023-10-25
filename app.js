@@ -9,7 +9,7 @@ const Notice = require("./modals/Notice");
 const Event = require("./modals/Event");
 const maintenance = require("./modals/Maintenance");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use(
   session({
@@ -173,6 +173,6 @@ app.post("/userDashboard", requireLogin, (req, res) => {
   signinHandler(req, res, user, maintenance);
 });
 
-app.listen(port, () => {
+app.listen(PORT, () => {
   console.log(`Example app listening on http://127.0.0.1:${port}`);
 });
