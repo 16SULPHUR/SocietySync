@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
 const fs = require("fs");
+const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const user = require("./modals/User");
