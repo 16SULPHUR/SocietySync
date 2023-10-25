@@ -9,7 +9,8 @@ const Notice = require("./modals/Notice");
 const Event = require("./modals/Event");
 const maintenance = require("./modals/Maintenance");
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
+// const PORT = process.env.PORT || 3000;
 
 app.use(
   session({
