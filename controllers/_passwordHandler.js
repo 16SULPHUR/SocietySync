@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 
 const Notices = require('../modals/Notice');
+const Events = require('../modals/Event');
 
 async function passwordHandler(req,res,User) {
   const body = req.body;
@@ -8,6 +9,7 @@ async function passwordHandler(req,res,User) {
   const result = await User.find({ username: body.username });
 
   const allNotices = await Notices.find();
+  const allEvents = await Events.find();
 
   const passwordMatch = bcrypt.compareSync(body.password, result[0].password);
   if (passwordMatch) {
@@ -16,7 +18,8 @@ async function passwordHandler(req,res,User) {
     // start session
     req.session.user = {
       userDetails: userDetails,
-      allNotices: allNotices  ,
+      allNotices: allNotices,
+      Events: allEvents,
     };
 
     if (result[0].isAdmin) {

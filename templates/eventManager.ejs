@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen">
+    <%- include('partials/adminDashboard/_header') %>
+    <div class="flex">
+      <%- include('partials/adminDashboard/_sidebar1') %> <%-
+      include('partials/adminDashboard/_sidebar2') %>
+    </div>
+
+    <main class="py-16">
+        <section class="bg-white rounded-lg shadow-md p-4">
+            <h2 class="text-xl font-semibold">Event List</h2>
+            <div class="sm:p-20 p-4 container mx-auto">
+              <div class="overflow-x-auto">
+                <table class="min-w-full border rounded rounded-lg">
+                  <thead>
+                    <tr>
+                      <th
+                        class="py-2 px-3 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        S.No
+                      </th>
+                      <th
+                        class="py-2 px-3 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        Title
+                      </th>
+                      <th
+                        class="py-2 px-1 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        Description
+                      </th>
+                      <th
+                        class="py-2 px-1 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        Locaton
+                      </th>
+                      <th
+                        class="py-2 px-1 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        Date
+                      </th>
+                      <th
+                        class="py-2 px-1 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        Time
+                      </th>
+                      <th
+                        class="py-2 px-3 bg-gray-100 font-medium text-gray-600 uppercase border border-gray-300"
+                      >
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% let counter = 1; %> <% events.forEach(event => { %>
+                    <tr>
+                      <td class="py-2 px-3 border border-gray-300 text-center">
+                        <%= counter %>
+                      </td>
+    
+                      <td class="py-2 px-3 border border-gray-300 text-center">
+                        <%= event.title %>
+                      </td>
+                      <td class="py-2 px-1 border border-gray-300 text-center">
+                        <%= event.description %>
+                      </td>
+                      <td class="py-2 px-1 border border-gray-300 text-center">
+                        <%= event.location %>
+                      </td>
+                      <td class="py-2 px-1 border border-gray-300 text-center">
+                        <%= event.date.toLocaleDateString('en-US',
+                        { day: 'numeric', month: 'short', year: 'numeric' }) %>
+                      </td> 
+                      <td class="py-2 px-1 border border-gray-300 text-center">
+                        <%= event.date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }) %>
+                      </td>
+                      <td
+                        class="py-2 px-3 border border-gray-300 flex space-x-2 justify-around"
+                      >
+                        
+                        <button
+                          id="<%= event._id %>"
+                          class="bg-blue-200/50 hover:bg-blue-600 text-blue-600 font-semibold hover:text-white rounded-md px-2 py-1 edit-notice-button"
+                          data-event-id="<%= event._id %>"
+                          data-event-title="<%= event.title %>"
+                          data-event-content="<%= event.content %>"
+                          onclick="openModal(this.id)"
+                        >
+                          Edit
+                        </button>
+    
+                        <form
+                          action="/manageNotices"
+                          method="POST"
+                          onsubmit="return confirm('Are you sure? This action cannot be undone');"
+                        >
+                          <input
+                            type="hidden"
+                            name="deleteId"
+                            value="<%= event._id %>"
+                          />
+                          <button
+                            type="submit"
+                            class="bg-red-200/50 hover:bg-red-600 text-red-600 font-semibold hover:text-white rounded-md px-2 py-1"
+                          >
+                            Delete
+                          </button>
+                        </form>
+                      </td>
+                    </tr>
+                    <% counter++; %> <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+    </main>
+
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+    <script src="js/script.js"></script>
+  
+  </body>
+</html>

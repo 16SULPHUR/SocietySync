@@ -5,6 +5,8 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const user = require("./modals/User");
+const Notice = require("./modals/Notice");
+const Event = require("./modals/Event");
 const maintenance = require("./modals/Maintenance");
 const app = express();
 const port = 3000;
@@ -20,7 +22,26 @@ app.use(
   })
 );
 
-require('dotenv').config();
+const DB = 'mongodb+srv://akpatil51340:%40Ankit2005@cluster0.rwylpqs.mongodb.net/SentosaEnclaveDataBase?retryWrites=true&w=majority'
+
+main().catch((err) => console.log(err));
+
+async function main() {
+  await mongoose.connect(DB
+    // , {
+    // useNewUrlParser : true,
+    // userCreateIndex : true,
+    // useUnifiedTopology : true,
+    // useFindAndModify : false,
+  // }
+  );
+  console.log("connected to db");
+}
+
+
+
+
+// require('dotenv').config();
 
 // const connectDB = require('./connectMongo')
 
@@ -54,12 +75,12 @@ app.use(express.static(path.join(__dirname, "./public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-main().catch((err) => console.log(err));
+// main().catch((err) => console.log(err));
 
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/SocietySync");
-  console.log("connected to db");
-}
+// async function main() {
+//   await mongoose.connect("mongodb://127.0.0.1:27017/SocietySync");
+//   console.log("connected to db");
+// }
 
 const signinRouter = require("./routes/signin");
 const handlePassRouter = require("./routes/handlePassword");
@@ -69,6 +90,7 @@ const maintenanceRouter = require("./routes/maintenance");
 const maintenancePaymentRouter = require("./routes/maintenancePayment");
 const addNoticeRouter = require("./routes/addNotice");
 const manageNoticesRouter = require("./routes/manageNotices");
+const eventManagerRouter = require("./routes/eventManager");
 const signinHandler = require("./controllers/_signinHandler");
 
 app.use("/signin", signinRouter);
@@ -80,13 +102,15 @@ app.use("/maintenance", maintenanceRouter);
 app.use("/maintenancePayment", maintenancePaymentRouter);
 app.use("/addNotice", addNoticeRouter);
 app.use("/manageNotices", manageNoticesRouter);
+app.use("/eventManager", eventManagerRouter);
 
 
 
 
 app.get("/", requireLogin, async (req, res) => {
   const user = req.session.user.userDetails; // Access user data from the session
-  const allNotices = req.session.user.allNotices;
+  const allNotices = await Notice.find();
+  const events = await Event.find();
   const maintenanceResult = await maintenance.find({ username: user.username }).exec();
     console.log("Maintenance result")
     console.log(maintenanceResult)
@@ -109,6 +133,7 @@ app.get("/", requireLogin, async (req, res) => {
       isLogedin: true,
       id:user._id,
       allNotices : allNotices,
+      events : events,
     });
   } else {
     // Render the dashboard view and send user data
@@ -124,6 +149,7 @@ app.get("/", requireLogin, async (req, res) => {
       isLogedin: true,
       id:user._id,
       allNotices : allNotices,
+      events : events,
     });
   }
 });

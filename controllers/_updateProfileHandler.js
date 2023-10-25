@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-
+const User = require("../modals/User");
 
 async function updateProfileHandler(req, res, User) {
     body = req.body;
@@ -34,9 +34,9 @@ async function updateProfileHandler(req, res, User) {
       user.mobile = body.phone
     }
     
-    const updatedUser =  await user.save();
+    await user.save();
 
-    req.session.user.userDetails = updatedUser
+    // req.session.user.userDetails = await User.find();
     // req.session.user = {
     //   userDetails: updatedUser,
     //   // Add other relevant user data

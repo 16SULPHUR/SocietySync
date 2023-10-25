@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 0em;
+    user-select: none;
+  }
+  
+  main {
+    margin-top: 4rem;
+  }
+  
+  div .user{
+    display: flex;
+    flex-direction: row;
+  }
+  
+  main .userDP {
+    /* background-color: aqua; */
+    /* width: fit-content; */
+  }
+  
+  div.userDP img {
+    /* height: 12rem; */
+    /* border-color: rgb(167, 116, 40); */
+  }
+  
+  div.events {
+    overflow: auto;
+    white-space: nowrap;
+    /* width: 69rem; */
+    width: 101%;
+  }
+  
+  div .event {
+    display: inline-block;
+    width: 350px;
+    white-space: normal;
+    /* transition: all 2s ; */
+    /* backdrop-filter: blur(4px); */
+  }
+  
+  .events::-webkit-scrollbar {
+    width: 0em;
+  }
+  
+  .events {
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .wrapThis{
+    display: -webkit-box;
+    -webkit-line-clamp: 1
+    ; /* Limit the text to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  @media (max-width: 600px) {
+    /* header {
+      border: 1px solid black;
+      margin: 9px 17px;
+      width: 360px;
+      border-radius: 62px;
+    } */
+  
+    nav {
+      flex-direction: column;
+      margin: 1rem 0px -1rem 0rem;
+    }
+  
+    nav div .hamburger {
+      display: block;
+    }
+  
+    nav .headLogo {
+      justify-items: stretch;
+      align-items: center;
+    }
+    
+  
+    nav .small-screens-links {
+      margin-top: 0rem;
+      display: flex;
+      justify-content: center;
+    }
+  
+    nav .small-screens-links ul {
+      margin-top: 1rem;
+      /* display: flex; */
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    nav .loginBtn {
+      margin-bottom: 1rem;
+    }
+  
+    nav .logoLink {
+      display: flex;
+      justify-content: center;
+      justify-content: center;
+    }
+  
+    nav .big-screens-links {
+      display: none;
+    }
+  
+    main .user{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    main .userDP img{
+      /* height: 9rem; */
+    }
+  
+    div.events {
+      overflow: auto;
+      white-space: nowrap;
+      width: 23rem;
+    }
+  
+    main .grid-container{
+      column-gap: 3rem;
+      margin-left: 3rem;
+    }
+  }
+  
