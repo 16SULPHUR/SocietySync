@@ -9,8 +9,8 @@ const Notice = require("./modals/Notice");
 const Event = require("./modals/Event");
 const maintenance = require("./modals/Maintenance");
 const app = express();
-const PORT = process.env.PORT;
-// const PORT = process.env.PORT || 3000;
+// const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3000;
 
 app.use(
   session({
@@ -20,6 +20,12 @@ app.use(
     cookie: {
       maxAge: 60 * 60 * 1000, // 1 hour in milliseconds
     },
+  })
+);
+
+app.use(
+  cors({
+    origin: ["https://127.0.0.1:3000", "https://societysync.onrender.com"]
   })
 );
 
