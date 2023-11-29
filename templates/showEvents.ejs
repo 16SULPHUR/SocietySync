@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen">
+
+
+    <% if(user.isAdmin){ %>
+        <%- include('partials/adminDashboard/_header') %>
+        <div class="flex">
+            <%- include('partials/adminDashboard/_sidebar1') %> <%-
+            include('partials/adminDashboard/_sidebar2') %>
+          </div>
+        <% }else{ %>
+            <%- include('partials/userDashboard/_header') %>
+          <% } %>
+
+
+    <main class="py-16">
+        <%- include('partials/allEvents') %>
+    </main>
+
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+   
+    <% if(user.isAdmin){ %>
+        <script src="js/admin.js"></script>
+        <% }else{ %>
+            <script src="js/index.js"></script>
+          <% } %>
+  
+  </body>
+</html>

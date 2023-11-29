@@ -1,0 +1,97 @@
+<section class="bg-white rounded-lg p-4 mt-10">
+  <div class="w-full">
+    <div
+      class="shadow-lg rounded-md w-fit mx-auto px-4 py-3 text-center flex items-center gap-2"
+    >
+      <img src="resources/list.png" alt="" class="h-7 self-center" />
+      <!-- Adjust the width (w) and height (h) as needed -->
+      <h2
+        class="text-xl font-semibold"
+        style="
+          background: -webkit-linear-gradient(-45deg, #ff0000, #972323);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        "
+      >
+        Event List
+      </h2>
+    </div>
+  </div>
+
+  <div class="sm:px-20 sm:py-10 px-4 container mx-auto">
+    <div class="overflow-x-auto">
+      <table
+        class="min-w-full border rounded rounded-lg"
+        style="border-color: gray"
+      >
+        <thead>
+          <tr>
+            <th
+              class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+              style="background-color: #972323"
+            >
+              S.No
+            </th>
+            <th
+              class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+              style="background-color: #972323"
+            >
+              Title
+            </th>
+            <th
+              class="py-2 px-1 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+              style="background-color: #972323"
+            >
+              Description
+            </th>
+            <th
+              class="py-2 px-1 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+              style="background-color: #972323"
+            >
+              Locaton
+            </th>
+            <th
+              class="py-2 px-1 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+              style="background-color: #972323"
+            >
+              Date
+            </th>
+            <th
+              class="py-2 px-1 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+              style="background-color: #972323"
+            >
+              Time
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let counter = 1; %> <% events.forEach(event => { %>
+          <tr>
+            <td class="py-2 px-3 border border-gray-500 text-center">
+              <%= counter %>
+            </td>
+
+            <td class="py-2 px-3 border border-gray-500 text-center">
+              <%= event.title %>
+            </td>
+            <td class="py-2 px-1 border border-gray-500 text-center">
+              <%= event.description %>
+            </td>
+            <td class="py-2 px-1 border border-gray-500 text-center">
+              <%= event.location %>
+            </td>
+            <td class="py-2 px-1 border border-gray-500 text-center">
+              <%= event.date.toLocaleDateString('en-US', { day: 'numeric',
+              month: 'short', year: 'numeric' }) %>
+            </td>
+            <td class="py-2 px-1 border border-gray-500 text-center">
+              <%= event.date.toLocaleTimeString('en-US', { hour: '2-digit',
+              minute: '2-digit' }) %>
+            </td>
+          </tr>
+          <% counter++; %> <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

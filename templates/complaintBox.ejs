@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body style="user-select: none">
+    <lr-config
+      ctx-name="my-uploader"
+      pubkey="6c35776300622c7fb7d6"
+      max-local-file-size-bytes="10000000"
+      multiple-max="3"
+      img-only="true"
+      source-list="local, url, camera, dropbox"
+    ></lr-config>
+
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+
+    <main class="py-8 pt-20 sm:pt-1 flex items-center justify-center mt-20">
+      <div class="bg-white p-8 rounded shadow-md w-96">
+        <h2 class="text-2xl font-semibold mb-6">Complaint Box</h2>
+
+        <form
+          action="/complaintBox/newComplaint"
+          method="POST"
+          enctype="multipart/form-data"
+        >
+          <div class="mb-4">
+            <label for="complaintTitle" class="block text-gray-600 font-medium"
+              >Complaint Title</label
+            >
+            <input
+              type="text"
+              id="complaintTitle"
+              name="complaintTitle"
+              class="w-full mt-1 p-2 border border-gray-300 rounded"
+            />
+          </div>
+
+          <div class="mb-4">
+            <label
+              for="complaintDetails"
+              class="block text-gray-600 font-medium"
+              >Complaint Details</label
+            >
+            <textarea
+              id="complaintDetails"
+              name="complaintDetails"
+              rows="4"
+              class="w-full mt-1 p-2 border border-gray-300 rounded"
+            ></textarea>
+          </div>
+
+          <div class="mb-4">
+            <label for="complaintImages" class="block text-gray-600 font-medium"
+              >Attach Images (up to 3)</label
+            >
+            <input type="file" id="complaintImages" name="complaintImages" accept="image/*" multiple class="w-full mt-1 p-2 border border-gray-300 rounded">
+              <div id="imagePreview" class="mt-2 flex space-x-2 border border-gray-300"></div>
+
+            <lr-file-uploader-regular
+              css-src="https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.25.0/web/lr-file-uploader-regular.min.css"
+              ctx-name="my-uploader"
+              class="my-config"
+              role="uploadcare-uploader"
+            >
+            </lr-file-uploader-regular>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+          >
+            Submit Complaint
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+    <script src="js/script.js"></script>
+    <script>
+      document
+        .getElementById("complaintImages")
+        .addEventListener("change", function (event) {
+          const previewContainer = document.getElementById("imagePreview");
+          previewContainer.innerHTML = "";
+
+          const files = event.target.files;
+
+          // Set the maximum number of images allowed
+          const maxImages = 3;
+
+          // Iterate through the files and limit the number of images
+          for (let i = 0; i < Math.min(files.length, maxImages); i++) {
+            const file = files[i];
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              const img = document.createElement("img");
+              img.src = e.target.result;
+              img.classList.add(
+                "w-16",
+                "h-16",
+                "object-cover",
+                "rounded",
+                "border",
+                "border-black"
+              );
+
+              previewContainer.appendChild(img);
+            };
+
+            reader.readAsDataURL(file);
+          }
+        });
+    </script>
+
+    <script type="module">
+      import * as LR from "https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.25.0/web/lr-file-uploader-regular.min.js";
+
+      LR.registerBlocks(LR);
+    </script>
+  </body>
+</html>

@@ -23,6 +23,67 @@
     </div>
 
     <main class="py-16">
+      <!-- Edit Event modal -->
+      <div
+        id="editEventModal"
+        class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      >
+        <div class="modal-content bg-white w-96 rounded-md shadow-lg p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold">Edit Event</h2>
+            <button
+              id="closeEditModal"
+              class="text-gray-600 hover:text-red-500 text-lg focus:outline-none"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <form action="/eventManager" method="post" id="editEventForm">
+            <div class="mb-4">
+
+              <input
+                type="hidden"
+                id="id"
+                name="id"
+              />
+              
+              <label
+                for="editTitle"
+                class="block text-gray-600 text-sm font-medium mb-2"
+                >Title:</label
+              >
+              <input
+                type="text"
+                id="editTitle"
+                name="title"
+                required
+                class="w-full border border-gray-300 rounded-md p-2"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="editContent"
+                class="block text-gray-600 text-sm font-medium mb-2"
+                >Content:</label
+              >
+              <textarea
+                id="editContent"
+                name="content"
+                required
+                class="w-full h-32 border border-gray-300 rounded-md p-2"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="block w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md py-2"
+            >
+              Update Event
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- TABLE -->
         <section class="bg-white rounded-lg shadow-md p-4">
             <h2 class="text-xl font-semibold">Event List</h2>
             <div class="sm:p-20 p-4 container mx-auto">
@@ -96,17 +157,17 @@
                         
                         <button
                           id="<%= event._id %>"
-                          class="bg-blue-200/50 hover:bg-blue-600 text-blue-600 font-semibold hover:text-white rounded-md px-2 py-1 edit-notice-button"
+                          class="bg-blue-200/50 hover:bg-blue-600 text-blue-600 font-semibold hover:text-white rounded-md px-2 py-1 edit-Event-button"
                           data-event-id="<%= event._id %>"
                           data-event-title="<%= event.title %>"
-                          data-event-content="<%= event.content %>"
+                          data-event-content="<%= event.description %>"
                           onclick="openModal(this.id)"
                         >
                           Edit
                         </button>
     
-                        <form
-                          action="/manageNotices"
+                        <form 
+                          action="/eventManager"
                           method="POST"
                           onsubmit="return confirm('Are you sure? This action cannot be undone');"
                         >
@@ -115,7 +176,8 @@
                             name="deleteId"
                             value="<%= event._id %>"
                           />
-                          <button
+                          <button 
+
                             type="submit"
                             class="bg-red-200/50 hover:bg-red-600 text-red-600 font-semibold hover:text-white rounded-md px-2 py-1"
                           >
@@ -137,6 +199,31 @@
     </footer> -->
 
     <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+
+    <script>
+
+      // Open the modal when the Edit button is clicked
+      function openModal(id){
+        document.getElementById("editEventModal").style.display = "block";
+        const button = document.getElementById(id)
+
+          const EventId = button.getAttribute("data-Event-id");
+          const EventTitle = button.getAttribute("data-event-title");
+          const EventContent = button.getAttribute("data-event-content");
+
+          document.getElementById("id").value = EventId;
+          document.getElementById("editTitle").value = EventTitle;
+          document.getElementById("editContent").value = EventContent;
+        };
+
+      // Close the modal when the Close button is clicked
+      document
+        .getElementById("closeEditModal")
+        .addEventListener("click", function () {
+          document.getElementById("editEventModal").style.display = "none";
+        });
+    </script>
   
   </body>
 </html>

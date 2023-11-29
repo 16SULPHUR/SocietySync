@@ -70,9 +70,23 @@ async function _eventManagerPOST(req, res) {
     return;
   }
 
-  res.render(
-    "F:/PROGRAMING/WEB DEVELOPMENT/SocietySync/templates/eventManager.ejs"
-  );
+  const body = req.body
+  if(body.deleteId){
+    console.log("delete event")
+    const eventToDelete = await Event.deleteOne({_id : body.deleteId});
+  }else { 
+    eventToChange = await Event.findById(body.id);
+
+    eventToChange.title = body.title;
+    eventToChange.description = body.content;
+    eventToChange.lastChangedBy = req.session.user.userDetails._id;
+
+    await eventToChange.save();
+  }
+
+  req.session.user.allEvents = await Event.find();
+
+  res.redirect("/eventManager");
 }
 
 module.exports = { _addEventManagerGET,_addEventManagerPOST, _eventManagerGET, _eventManagerPOST};
