@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen">
+
+
+    
+            <%- include('partials/userDashboard/_header') %>
+
+
+    <main class="py-16">
+        <section class="bg-white rounded-lg p-4 mt-10">
+            <div class="w-full">
+              <div
+                class="shadow-lg rounded-md w-fit mx-auto px-4 py-3 text-center flex items-center gap-2"
+              >
+                <img src="resources/list.png" alt="" class="h-7 self-center" />
+                <!-- Adjust the width (w) and height (h) as needed -->
+                <h2
+                  class="text-xl font-semibold"
+                  style="
+                    background: -webkit-linear-gradient(-45deg, #ff0000, #972323);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                  "
+                >
+                  Notices
+                </h2>
+              </div>
+            </div>
+          
+            <div class="sm:px-20 sm:py-10 px-4 container mx-auto">
+              <div class="overflow-x-auto">
+                <table
+                  class="min-w-full border rounded rounded-lg"
+                  style="border-color: gray"
+                >
+                  <thead>
+                    <tr>
+                      <th
+                        class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                        style="background-color: #972323"
+                      >
+                        S.No
+                      </th>
+                      <th
+                        class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                        style="background-color: #972323"
+                      >
+                        Title
+                      </th>
+                      <th
+                        class="py-2 px-1 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                        style="background-color: #972323"
+                      >
+                        Description
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% let counter = 1; %> <% notices.forEach(notice => { %>
+                    <tr>
+                      <td class="py-2 px-3 border border-gray-500 text-center">
+                        <%= counter %>
+                      </td>
+          
+                      <td class="py-2 px-3 border border-gray-500 text-center">
+                        <%= notice.title %>
+                      </td>
+                      <td class="py-2 px-1 border border-gray-500 text-center">
+                        <%= notice.content %>
+                      </td>
+                    </tr>
+                    <% counter++; %> <% }); %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+          
+    </main>
+
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+   
+   
+            <script src="js/index.js"></script>
+  
+  </body>
+</html>

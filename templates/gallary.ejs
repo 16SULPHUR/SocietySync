@@ -1,0 +1,109 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      #bigDiv {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+        display: none;
+      }
+
+      #sidebar {
+        margin-top: 4rem;
+      }
+
+      .my-config {
+        --darkmode: 0;
+        --h-accent: 274;
+        --s-accent: 100%;
+        --l-accent: 61%;
+      }
+    </style>
+  </head>
+  <lr-config
+    ctx-name="my-uploader"
+    pubkey="9eaeb2ea2031be2f1d7c"
+    max-local-file-size-bytes="10000000"
+    img-only="true"
+    source-list="local, url, camera, dropbox"
+  ></lr-config>
+  <body style="user-select: none">
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+    <main class="py-8 pt-20">
+      <% if(isAdmin) { %>
+      <div class="w-6/6" style="display: flex; justify-content: center">
+        <lr-config
+          ctx-name="my-uploader"
+          pubkey="9eaeb2ea2031be2f1d7c"
+          max-local-file-size-bytes="10000000"
+          img-only="true"
+          source-list="local, url, camera, facebook, gdrive, gphotos"
+        ></lr-config>
+        <lr-file-uploader-regular
+          css-src="https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.25.0/web/lr-file-uploader-regular.min.css"
+          ctx-name="my-uploader"
+          class="my-config"
+        >
+        </lr-file-uploader-regular>
+      </div>
+      <% } %>
+
+      <div class="container flex gap-4 flex-col sm:flex-row sm-p-0 p-16">
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+        />
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4">
+          <% images.forEach(image => { %>
+          <a
+            href="<%= image %>"
+            data-fancybox="gallery"
+            data-caption="Caption #1"
+          >
+            <img src="<%= image %>" alt="" class="h-full w-full object-cover" />
+          </a>
+          <% }); %>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+        <script>
+          Fancybox.bind('[data-fancybox="gallery"]', {
+            //
+          });
+        </script>
+      </div>
+    </main>
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+    <script src="js/script.js"></script>
+    <script type="module">
+      import * as LR from "https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.25.0/web/lr-file-uploader-regular.min.js";
+
+      LR.registerBlocks(LR);
+    </script>
+  </body>
+</html>

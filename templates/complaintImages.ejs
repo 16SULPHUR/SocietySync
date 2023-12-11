@@ -1,0 +1,91 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <style>
+      #bigDiv {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(8px);
+        z-index: 100;
+        display: none;
+      }
+
+      #sidebar{
+        margin-top: 4rem;
+      }
+    </style>
+  </head>
+  <body style="user-select: none">
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+
+    <div class="bg-gray-100 pt-16 flex flex-col">
+      <button
+        onclick="goBack()"
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4 self-start"
+      >
+        Back
+      </button>
+    </div>
+    <main class="py-8 pt-20 sm:pt-1 flex items-center justify-center">
+      <!-- Back Button -->
+
+      <!-- Your content goes here -->
+
+      <script>
+        // JavaScript function to go back
+        function goBack() {
+          window.history.back();
+        }
+      </script>
+      <div
+        class="container sm:w-3/5 flex gap-4 flex-col sm:flex-row sm-p-0 p-16"
+      >
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
+        />
+        <% images.forEach(image => { %>
+        <a
+          class="h-fit"
+          href="<%= image %>"
+          data-fancybox="gallery"
+          data-caption="Caption #1"
+        >
+          <img src="<%= image %>" alt="" class="h-full w-full object-cover" />
+        </a>
+        <% }); %>
+
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+        <script>
+          Fancybox.bind('[data-fancybox="gallery"]', {
+            //
+          });
+        </script>
+      </div>
+    </main>
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,10 +1,9 @@
 const mongoose = require("mongoose");
 
-const MaintenanceSchema = new mongoose.Schema({
+const complaintSchema = new mongoose.Schema({
     complaintTitle: {
         type: String,
         required: true,
-        enum: ['noise', 'maintenance', 'security', 'other'], // Add more complaint types as needed
       },
       complaintDetails: {
         type: String,
@@ -12,7 +11,7 @@ const MaintenanceSchema = new mongoose.Schema({
       },
       images: [
         {
-          type: String, // Assuming you store image URLs; adjust as needed
+          type: String,
         },
       ],
       status: {
@@ -21,8 +20,7 @@ const MaintenanceSchema = new mongoose.Schema({
         default: 'pending',
       },
       submittedBy: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Reference to the User model
+        type: Object,
         required: true,
       },
       createdAt: {
@@ -31,4 +29,4 @@ const MaintenanceSchema = new mongoose.Schema({
       },
 });
 
-module.exports = mongoose.model("Maintenance", MaintenanceSchema);
+module.exports = mongoose.model("Complaint", complaintSchema);

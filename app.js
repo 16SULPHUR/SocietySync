@@ -1,3 +1,4 @@
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -6,6 +7,7 @@ const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const User = require("./modals/User");
+const Complaint = require("./modals/Complaint");
 const Notice = require("./modals/Notice");
 const Event = require("./modals/Event");
 const maintenance = require("./modals/Maintenance");
@@ -100,6 +102,9 @@ const manageNoticesRouter = require("./routes/manageNotices");
 const eventManagerRouter = require("./routes/eventManager");
 const complaintBoxRouter = require("./routes/complainBox");
 const showEventsRouter = require("./routes/showEvents");
+const rulesRouter = require("./routes/rules");
+const gallaryRouter = require("./routes/gallary");
+const allNoticesRouter = require("./routes/allNotices");
 const signinHandler = require("./controllers/_signinHandler");
 
 app.use("/signin", signinRouter);
@@ -114,6 +119,9 @@ app.use("/manageNotices", manageNoticesRouter);
 app.use("/events", showEventsRouter);
 app.use("/eventManager", eventManagerRouter);
 app.use("/complaintBox", complaintBoxRouter);
+app.use("/rules-and-regulations", rulesRouter);
+app.use("/gallary", gallaryRouter);
+app.use("/allNotices", allNoticesRouter);
 
 
 
@@ -132,6 +140,9 @@ app.get("/", requireLogin, async (req, res) => {
 
   console.log(user)
   if (user.isAdmin) {
+    const allComplaints = await Complaint.find();
+    console.log("allComplaints:::::")
+    console.log(allComplaints)
     // Render the dashboard view and send user data
     res.render("adminDashboard", {
       maintenanceDetails: maintenance,
@@ -145,6 +156,7 @@ app.get("/", requireLogin, async (req, res) => {
       isLogedin: true,
       id:user._id,
       allNotices : allNotices,
+      complaints : allComplaints,
       events : events,
       userIsAdmin : user.isAdmin,
     });

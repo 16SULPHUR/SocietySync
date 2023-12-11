@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body style="user-select: none">
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+
+    <main class="container py-8 sm:px-16">
+      <div class="grid grid-cols-1 sm:grid-cols-3">
+        
+
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-red-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-red-500 text-xl">
+                Entry/Exit Rules
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-red-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Residents must use designated entry and exit points to ensure proper monitoring and security.</li><br>
+                <li>Visitors need to follow a registration process to gain access to the society.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-orange-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-orange-500 text-xl">
+                Security Measures
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-orange-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Security personnel should be well-trained and follow established guidelines for ensuring the safety of residents.</li><br>
+                <li>Surveillance cameras must be strategically placed and adhere to privacy regulations. Emergency response procedures need to be clearly defined.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-amber-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-amber-500 text-xl">
+                Parking Rules
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-amber-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Parking spaces should be allocated and clearly marked to avoid confusion.</li><br>
+                <li>Rules for visitor parking must be communicated and enforced. Unauthorized parking should be penalized.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+       
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-yellow-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-yellow-500 text-xl">
+                Waste Management
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-yellow-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Garbage disposal procedures should be clearly outlined, promoting responsible waste management.</li><br>
+                <li>Recycling practices should be encouraged, and residents should adhere to collection schedules.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-lime-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-lime-500 text-xl">
+                Common Area Usage
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-lime-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Rules governing the usage of common areas, such as parks and gyms, should be established and communicated.</li><br>
+                <li>Residents should follow booking procedures for using common spaces, and everyone is responsible for maintaining cleanliness.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-green-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-green-500 text-xl">
+                Noise Regulations
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-green-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Quiet hours should be specified to ensure a peaceful living environment.</li><br>
+                <li>Guidelines for events and parties, including permissible noise levels, must be communicated and followed.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-emerald-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-emerald-500 text-xl">
+                Pet Policies
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-emerald-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Rules for pet ownership, including leash and cleanliness requirements, should be communicated and followed.</li><br>
+                <li>Penalties for non-compliance with pet policies should be enforced.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-teal-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-teal-500 text-xl">
+                Alterations to Property
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-teal-100"
+          >
+            <h4 class="text-sm text-black">
+              <ul>
+                <li>Residents should follow established procedures for making modifications to their property.</li><br>
+                <li>Guidelines for exterior changes, ensuring uniformity and aesthetics, must be followed.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-cyan-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-cyan-500 text-xl">
+                Payment of Dues
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-cyan-100"
+          >
+            <h4 class="text-sm text-cyan-900">
+              <ul>
+                <li>Residents are required to pay maintenance dues on time, and penalties are imposed for late payments.</li><br>
+                <li>Guidelines for exterior changes, ensuring uniformity and aesthetics, must be followed.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+        
+        
+        <!-- Accordion -->
+        <div
+          x-data="{ open: false }"
+          class="bg-gray-50 pt-6 flex flex-col items-center relative overflow-hidden sm:pt-12"
+        >
+          <div
+            @click="open = ! open"
+            class="p-1 ps-4 bg-cyan-100 w-4/5 h-12 rounded flex justify-between items-center"
+          >
+            <div class="flex items-center gap-2">
+              <h4 class="font-medium text-sm text-cyan-500 text-xl">
+                Communication Protocols
+              </h4>
+            </div>
+          </div>
+          <div
+            class="w-4/5 bg-white p-4 border rounded-b-lg bg-cyan-100"
+          >
+            <h4 class="text-sm text-cyan-900">
+              <ul>
+                <li>Effective communication channels between residents and the management should be established.</li><br>
+                <li>Protocols for raising concerns or suggestions should be defined.</li>
+              </ul>
+               
+            </h4>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <script src="//unpkg.com/alpinejs" defer></script>
+    </main>
+
+    <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

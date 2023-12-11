@@ -1,116 +1,88 @@
-<header class="px-9 py-2 pb-4 sm:pb-4 shadow-md z-20">
-    <nav class="flex gap-3 mt-2 justify-between content-center">
-      <div class="headLogo flex justify-between">
-        <a class="logoLink" href="/"
-          ><div class="logo flex gap-4">
-            <img class="" src="resources/logo.png" alt="Logo" />
-            <span class="">SENTOSA<br />ENCLAVE</span>
-          </div></a
-        >
-
-        <div class="hamburger">
-          <i class="fa fa-solid fa-bars fa-xl sm:hidden" id="hamburger"></i>
-        </div>
-      </div>
-
-      <div id="rowLinks" class="rowLinks sm:block hidden self-center">
-        <ul class="flex flex-row gap-4 self-center font-semibold">
-          <li>
-            <a
-              class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2] rounded-lg"
-              href="/"
-              >Dashboard</a
-            >
-          </li>
-          <!-- <li>
-            <a
-              class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2] rounded-lg"
-              href=""
-              >Admin Dashboard</a
-            >
-          </li> -->
-          <li>
-            <a
-              class="px-3 py-2 text-red-600 hover:bg-red-300/[.2] rounded-lg"
-              href=""
-              >Events</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2] rounded-lg"
-              href=""
-              >Gallery</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2] rounded-lg"
-              href=""
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <div id="colLinks" class="colLinks sm:hidden hidden self-center">
-        <ul
-          class="flex flex-col gap-4 self-center items-center font-semibold"
-        >
-          <li>
-            <a
-              class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2] rounded-lg"
-              href=""
-              >Dashboard</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2] rounded-lg"
-              href=""
-              >Admin Dashboard</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-3 py-2 text-red-600 hover:bg-red-300/[.2] rounded-lg"
-              href=""
-              >Events</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2] rounded-lg"
-              href=""
-              >Gallery</a
-            >
-          </li>
-          <li>
-            <a
-              class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2] rounded-lg"
-              href=""
-              >Contact</a
-            >
-          </li>
-        </ul>
-      </div>
-
-      <!-- <a href="/logout"
-        ><button
-          class="btn font-bold py-2 px-4 rounded mb-4 hover:bg-emerald-600"
-          id="loginBtn"
-        >
-          Log out
-        </button></a
-      > -->
-
-      <a href="/logout" class="self-center"
-        ><button
-          class="loginBtn sm:block hidden sm:w-fit w-full btn font-bold py-2 px-4 rounded bg-emerald-500 text-white hover:bg-emerald-600"
-          id="logoutbtn"
-        >
-          Log out
-        </button></a
+<header class="fixed w-screen z-50 bg-white h-fit p-3 items-center shadow-lg sm:px-9 sm:py-1">
+  <div class="flex justify-between">
+    <a class="logoLink " href="/"
+        ><div class="logo flex gap-4 ">
+          <img class="h-8 self-center" src="resources/logo.png" alt="Logo" />
+          <span class="text-sm">SENTOSA<br />ENCLAVE</span>
+        </div></a
       >
-    </nav>
-  </header>
+    <div class="ham2 sm:hidden block mt-2" id="menuHam">
+      <button id="hamBtn2" onclick="sidebarFun()">
+        <i class="fa-solid fa-bars fa-xl" style="color: #184490"></i>
+      </button>
+    </div>
+
+    <div id="rowLinks" class="rowLinks sm:block hidden self-center">
+      <ul class="flex flex-row gap-4 self-center font-semibold">
+        <li>
+          <a
+            class="px-3 py-2 text-blue-600 hover:bg-blue-300/[.2] rounded-lg"
+            href="/"
+            >Dashboard</a
+          >
+        </li>
+        <!-- <li>
+          <a
+            class="px-3 py-2 text-emerald-600 hover:bg-emerald-300/[.2] rounded-lg"
+            href=""
+            >Admin Dashboard</a
+          >
+        </li> -->
+        <li>
+          <a
+            class="px-3 py-2 text-red-600 hover:bg-red-300/[.2] rounded-lg"
+            href="/events"
+            >Events</a
+          >
+        </li>
+        <li>
+          <a
+            class="px-3 py-2 text-orange-600 hover:bg-orange-300/[.2] rounded-lg"
+            href="/gallary"
+            >Gallery</a
+          >
+        </li>
+        <li>
+          <a
+            class="px-3 py-2 text-fuchsia-600 hover:bg-fuchsia-300/[.2] rounded-lg"
+            href="allNotices"
+            >Notices</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <a href="/logout" class="self-center sm:block hidden"
+      ><button
+        class="loginBtn sm:block hidden sm:w-fit w-full btn font-bold py-2 px-4 rounded bg-emerald-500 text-white hover:bg-emerald-600"
+        id="logoutbtn"
+      >
+        Log out
+      </button></a
+    >
+  </div>
+</header>
+
+
+<div id="sBar" class="">
+<%- include('./sidebar') %>
+</div>
+
+
+<script>
+  document.getElementById("sBar").style.display = "none";
+  document.getElementById("menu").style.display = "none"
+  function sidebarFun(){
+        if ((document.getElementById("sBar").style.display == "none")) {
+          document.getElementById("sBar").style.display = "block";
+        } else {
+          document.getElementById("sBar").style.display = "none";
+        }
+
+        if((document.getElementById("menu").style.display == "none")){
+          document.getElementById("menu").style.display == "block"
+        }else{
+          document.getElementById("menu").style.display = "none"
+        }
+  }
+</script>

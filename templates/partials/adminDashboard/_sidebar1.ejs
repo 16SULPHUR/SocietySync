@@ -3,7 +3,7 @@
     <h2 class="text-2xl font-semibold text-gray-800 mt-6 ml-6">
       Admin Controls
     </h2>
-    <button onclick="w3_close('sidebar1')" class="text-4xl mt-4">
+    <button onclick="w3_close11('sidebar1')" class="text-4xl mt-4">
       &times;
     </button>
   </div>
@@ -77,7 +77,7 @@
       <div class="flex flex-col">
         <a
           class="text-lg mt-3 px-8 py-2 text-black-600 hover:bg-gray-400/[.2] rounded-lg inline-block"
-          href=""
+          href="/complaintBox"
         >
           <i class="fas fa-exclamation-circle text-red-500 mr-2"></i> Review
           Complaints
@@ -141,3 +141,31 @@
     </div>
   </div>
 </sidebar>
+
+<script>
+  document.getElementById("sidebar1").style.display = "none";
+  function w3_close11(sidebar) {
+        if (sidebar == "sidebar1") {
+          document.getElementById("sidebar1").style.display = "none";
+        } else {
+          document.getElementById("sidebar2").style.display = "none";
+        }
+      }
+
+      function expandSidebar(hamBtn) {
+        console.log(hamBtn);
+        if (hamBtn == "hamBtn1") {
+          if (document.getElementById("sidebar1").style.display == "block") {
+            document.getElementById("sidebar1").style.display = "none";
+          } else {
+            document.getElementById("sidebar1").style.display = "block";
+          }
+        } else {
+          if (document.getElementById("sidebar2").style.display == "block") {
+            document.getElementById("sidebar2").style.display = "none";
+          } else {
+            document.getElementById("sidebar2").style.display = "block";
+          }
+        }
+      }
+</script>

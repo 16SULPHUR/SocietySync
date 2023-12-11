@@ -1,42 +1,26 @@
-  console.log(screen.width);
-  // Hamburger menu Handler
-  // const hambtn = document.getElementById("hamburger");
-  // const loginBtn = document.getElementById("loginBtn");
-  // const smallScreenLinks = document.getElementById("small-screens-links-ul");
-  
-  // console.log(smallScreenLinks);
-  
-  // smallScreenLinks.style.display = "none";
-  // // loginBtn.style.display = "none";
-  
-  // hambtn.addEventListener("click", () => {
-  //   console.log("ham btn")
-  //   console.log(smallScreenLinks.style.display, loginBtn.style.display);
-  //   if (loginBtn.style.display == "none") {
-  //     smallScreenLinks.style.display = "flex";
-  //     loginBtn.style.display = "block";
-  //   } else {
-  //     smallScreenLinks.style.display = "none";
-  //     loginBtn.style.display = "none";
-  //   }
-  // });
-
-  const hambtn = document.getElementById("hamburger");
-const colLinks = document.getElementById("colLinks");
-const rowLinks = document.getElementById("rowLinks");
+// document.getElementById("sidebar1").style.display="none"
+document.getElementById("sidebar").style.display = "none";
 const logoutbtn = document.getElementById("logoutbtn");
 
-colLinks.style.display="none"
-
-hambtn.addEventListener("click", () => {
-  if(colLinks.style.display=="none"){
-  colLinks.style.display="block"
-  logoutbtn.style.display="block"
-}else{
-  colLinks.style.display="none"
-  logoutbtn.style.display="none"
+// expand sidebar
+function expandSidebar(hamBtn) {
+  console.log(hamBtn);
+  if (hamBtn == "hamBtn1") {
+    if (document.getElementById("sidebar1").style.display == "block") {
+      document.getElementById("sidebar1").style.display = "none";
+    }
+    else{
+      document.getElementById("sidebar1").style.display = "block";
+    }
+  } else {
+    if (document.getElementById("sidebar").style.display == "block") {
+      document.getElementById("sidebar").style.display = "none";
+    }
+    else{
+      document.getElementById("sidebar").style.display = "block";
+    }
   }
-});
+}
 
 
   // Function to automatically scroll the div horizontally

@@ -24,7 +24,7 @@ nav div .hamburger {
 }
 
 div.logo img {
-  height: 3rem;
+  /* height: 3rem; */
 }
 
 div.logo span {
@@ -67,6 +67,7 @@ div.userDP img {
 }
 
 div.events {
+  display: flex;
   overflow: auto;
   white-space: nowrap;
   /* width: 69rem; */

@@ -2,7 +2,10 @@
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-3xl font-semibold text-gray-800 mb-4">Upcoming events</h2>
     
-    <div class="events overflow-x-scroll h-56" id="scrollable">
+    <!-- <div class="events overflow-x-scroll h-56" id="scrollable"> -->
+      <marquee id="marqueeTag" class="events overflow-x-scroll flex" scrollamount="20" behavior="scroll" direction="left">
+        <div class="flex" style="width: 200%;">
+        <input type="hidden" name="eventsLength" id="eventsLength" value="<%= events.length %>">
       <!-- Use EJS to populate events dynamically -->
       <% events.forEach(event => { %>
 
@@ -12,12 +15,24 @@
 
           <div
           style="background: <%= randomBgColor %>"
-          class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4"
+          class="event mx-2 bg-white w-4/12 shadow-md rounded-lg p-4 h-40"
         >
-          <h3 class="text-xl font-semibold text-gray-900 mb-2"><%= event.title %></h3>
-          <p class="text-gray-600 h-32"><%= event.description %></p>
+          <h3 class="text-xl font-semibold text-gray-900 mb-2" style="word-wrap: break-word;"><%= event.title %></h3>
+          <p class="text-gray-600 h-20" style="word-wrap: break-word;text-overflow: ellipsis;"><%= event.description %></p>
         </div>
       <% }); %>
     </div>
+    </marquee>
+    <!-- </div> -->
   </div>
 </section>
+
+<script>
+  console.log(document.getElementById("eventsLength").value)
+  if(document.getElementById("eventsLength").value<3){
+    document.getElementById("marqueeTag").stop();
+  }
+  if(screen.width <= 390){
+    document.getElementById("marqueeTag").start();
+  }
+</script>
