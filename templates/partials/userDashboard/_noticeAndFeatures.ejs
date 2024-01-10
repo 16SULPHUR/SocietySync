@@ -166,11 +166,15 @@
             <p>
               List of complains that you registered. Check status of your complaints.
             </p>
-            <button
-              class="mt-2 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded"
-            >
-              My Complants
-            </button>
+            <form method="POST" action="/complaintBox/myComplaints">
+              <input type="hidden" name="id" value="<%= id %>" />
+              <button
+                type="submit"
+                class="mt-2 px-4 py-2 bg-orange-500 hover-bg-orange-600 text-white font-semibold rounded"
+              >
+                My Complaints
+              </button>
+            </form>
           </div>
           <!-- Add more details and buttons as needed -->
         </div>

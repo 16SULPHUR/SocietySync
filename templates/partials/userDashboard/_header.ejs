@@ -64,14 +64,14 @@
 </header>
 
 
-<div id="sBar" class="">
+<div id="sBar" class="" style="display: none;">
 <%- include('./sidebar') %>
 </div>
 
 
 <script>
   document.getElementById("sBar").style.display = "none";
-  document.getElementById("menu").style.display = "none"
+  // document.getElementById("menu").style.display = "none"
   function sidebarFun(){
         if ((document.getElementById("sBar").style.display == "none")) {
           document.getElementById("sBar").style.display = "block";

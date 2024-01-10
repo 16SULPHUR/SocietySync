@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentosa Enclave - SocietySync</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="w-screen select-none">
+    <!-- HEADER -->
+    <%- include('partials/userDashboard/_header') %>
+
+    <main class="py-16">
+      <!-- Edit complaint modal -->
+      <div
+        id="editcomplaintModal"
+        class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+      >
+        <div class="modal-content bg-white w-96 rounded-md shadow-lg p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-semibold">Edit complaint</h2>
+            <button
+              id="closeEditModal"
+              class="text-gray-600 hover:text-red-500 text-lg focus:outline-none"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <form action="/complaintManager" method="post" id="editcomplaintForm">
+            <div class="mb-4">
+              <input type="hidden" id="id" name="id" />
+
+              <label
+                for="editTitle"
+                class="block text-gray-600 text-sm font-medium mb-2"
+                >Title:</label
+              >
+              <input
+                type="text"
+                id="editTitle"
+                name="title"
+                required
+                class="w-full border border-gray-300 rounded-md p-2"
+              />
+            </div>
+            <div class="mb-6">
+              <label
+                for="editContent"
+                class="block text-gray-600 text-sm font-medium mb-2"
+                >Content:</label
+              >
+              <textarea
+                id="editContent"
+                name="content"
+                required
+                class="w-full h-32 border border-gray-300 rounded-md p-2"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="block w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md py-2"
+            >
+              Update complaint
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <section class="bg-white rounded-lg shadow-md p-4">
+
+        <div
+      class="shadow-lg rounded-md w-fit mx-auto px-4 py-3 text-center flex items-center gap-2"
+    >
+      <img src="resources/list.png" alt="" class="h-7 self-center" />
+      <!-- Adjust the width (w) and height (h) as needed -->
+      <h2
+        class="text-xl font-semibold"
+        style="
+          background: -webkit-linear-gradient(-45deg, #ff0000, #972323);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        "
+      >
+      My Complaints
+      </h2>
+      </div>
+        <div class="sm:px-20 sm:py-10 px-4 container mx-auto">
+          <div class="overflow-x-auto">
+            <table class="min-w-full border rounded rounded-lg">
+              <thead>
+                <tr>
+                  <th
+                    class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                     style="background-color: #972323"
+                  >
+                    S.No
+                  </th>
+                  <th
+                    class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                     style="background-color: #972323"
+                  >
+                    Title
+                  </th>
+                  <th
+                    class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                     style="background-color: #972323"
+                  >
+                    Description
+                  </th>
+                  <th
+                    class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                     style="background-color: #972323"
+                  >
+                    Images
+                  </th>
+                  <th
+                    class="py-2 px-3 bg-gray-100 font-medium text-white uppercase border border-gray-500"
+                     style="background-color: #972323"
+                  >
+                    Status
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% let counter = 1; %> 
+                <% myComplaints.forEach(complaint => { %>
+                  <tr>
+                    <td class="py-2 px-3 border border-gray-300 text-center">
+                      <%= counter %>
+                    </td>
+
+                    <td class="py-2 px-3 border border-gray-300 text-center">
+                      <%= complaint.complaintTitle %>
+                    </td>
+                    <td class="py-2 px-1 border border-gray-300 text-center">
+                      <%= complaint.complaintDetails %>
+                    </td>
+
+                    <td class="py-2 px-1 border border-gray-300 text-center">
+                      <%if(complaint.images[0]){ %>
+                      <a
+                        class="text-blue-600"
+                        href="/complaintBox/complaintImages/?c=<%= complaint._id %>"
+                        >Images</a
+                      >
+                      <% } else { %>
+                      <span>No Images</span>
+                      <% } %>
+                    </td>
+                    <% if(complaint.status === "pending"){ %>
+                    <td class="py-2 px-1 border border-gray-300 text-center font-bold text-red-500">
+                      <% } else { %>
+                        <td class="py-2 px-1 border border-gray-300 text-center font-bold text-green-500">
+                        <% } %>
+                      <%= complaint.status %>
+                    </td>
+                  </tr>
+                <% counter++; %> 
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- <footer class="h-8 w-full bg-gray-500 text-center text-white">
+      <span>copyright SocietySync 2023</span>
+    </footer> -->
+
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+
+    <script>
+      document.getElementById("sidebar1").style.display = "none";
+      document.getElementById("sidebar2").style.display = "none";
+
+      function w3_close11(sidebar) {
+        if (sidebar == "sidebar1") {
+          document.getElementById("sidebar1").style.display = "none";
+        } else {
+          document.getElementById("sidebar2").style.display = "none";
+        }
+      }
+
+      // expand sidebar
+      function expandSidebar(hamBtn) {
+        console.log(hamBtn);
+        if (hamBtn == "hamBtn1") {
+          if (document.getElementById("sidebar1").style.display == "block") {
+            document.getElementById("sidebar1").style.display = "none";
+          } else {
+            document.getElementById("sidebar1").style.display = "block";
+          }
+        } else {
+          if (document.getElementById("sidebar2").style.display == "block") {
+            document.getElementById("sidebar2").style.display = "none";
+          } else {
+            document.getElementById("sidebar2").style.display = "block";
+          }
+        }
+      }
+
+      function updateSubmitButtonState(counter) {
+        var checkbox = document.getElementById('status' + counter);
+        var submitButton = document.getElementById('submitButton' + counter);
+        console.log(submitButton)
+
+    if (checkbox.checked) {
+      submitButton.classList.remove('bg-yellow-200/50');
+      submitButton.classList.add('bg-yellow-400/50');
+      submitButton.classList.add('hover:bg-yellow-600');
+      submitButton.classList.add('hover:text-white');
+      submitButton.removeAttribute('disabled');
+    } else {
+      submitButton.classList.remove('bg-yellow-400/50');
+      submitButton.classList.remove('hover:bg-yellow-600');
+      submitButton.classList.remove('hover:text-white');
+      submitButton.classList.add('bg-yellow-200/50');
+      submitButton.setAttribute('disabled', 'true');
+    }
+  }
+    </script>
+  </body>
+</html>

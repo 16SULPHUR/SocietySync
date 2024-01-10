@@ -1,6 +1,6 @@
 const express = require("express");
 const user = require("../modals/User");
-const   { _newComplaintGET,_newComplaintPOST, _complaintManagerGet,_complaintImages, _complaintManagerPOST} = require("../controllers/_complaintBox");
+const   { _newComplaintGET,_newComplaintPOST, _complaintManagerGet,_complaintImages, _complaintManagerPOST, _myComplaints} = require("../controllers/_complaintBox");
 const router = express.Router();
 
 const multer = require('multer');
@@ -28,6 +28,11 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   console.log("post complaint manager");
   _complaintManagerPOST(req, res);
+});
+
+router.post("/myComplaints", async (req, res) => {
+  console.log("post myComplaints ");
+  _myComplaints(req, res);
 });
 // router.post("/", async (req, res) => {
 //   console.log("post toeventManager");

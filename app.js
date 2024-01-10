@@ -1,4 +1,3 @@
-
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -16,6 +15,8 @@ const cors = require("cors");
 // const PORT = process.env.PORT;
 const PORT = process.env.PORT || 3000;
 
+const YOUR_DOMAIN = 'http://127.0.0.1:3000';
+
 app.use(
   session({
     secret: "ankit",
@@ -27,30 +28,31 @@ app.use(
   })
 );
 
+
+
 // app.use(
 //   cors({
 //     origin: ["https://127.0.0.1:3000", "https://societysync.onrender.com"]
 //   })
 // );
 
-const DB = 'mongodb+srv://akpatil51340:%40Ankit2005@cluster0.rwylpqs.mongodb.net/SentosaEnclaveDataBase?retryWrites=true&w=majority'
+const DB =
+  "mongodb+srv://akpatil51340:%40Ankit2005@cluster0.rwylpqs.mongodb.net/SentosaEnclaveDataBase?retryWrites=true&w=majority";
 
 main().catch((err) => console.log(err));
 
 async function main() {
-  await mongoose.connect(DB
+  await mongoose.connect(
+    DB
     // , {
     // useNewUrlParser : true,
     // userCreateIndex : true,
     // useUnifiedTopology : true,
     // useFindAndModify : false,
-  // }
+    // }
   );
   console.log("connected to db");
 }
-
-
-
 
 // require('dotenv').config();
 
@@ -59,8 +61,6 @@ async function main() {
 // connectDB()
 
 app.set("view engine", "ejs");
-
-
 
 function requireLogin(req, res, next) {
   if (req.session.user) {
@@ -123,66 +123,64 @@ app.use("/rules-and-regulations", rulesRouter);
 app.use("/gallary", gallaryRouter);
 app.use("/allNotices", allNoticesRouter);
 
-
-
-
 app.get("/", requireLogin, async (req, res) => {
   const tempUser = req.session.user.userDetails; // Access user data from the session
   const user = await User.findById(tempUser._id); // Access user data from the session
   const allNotices = await Notice.find();
   const events = await Event.find();
-  const maintenanceResult = await maintenance.find({ username: user.username }).exec();
-    console.log("Maintenance result")
-    console.log(maintenanceResult)
-    console.log("all Notices:::::")
-    console.log(allNotices)
+  const maintenanceResult = await maintenance
+    .find({ username: user.username })
+    .exec();
+  console.log("Maintenance result");
+  console.log(maintenanceResult);
+  console.log("all Notices:::::");
+  console.log(allNotices);
 
-
-  console.log(user)
+  console.log(user);
   if (user.isAdmin) {
     const allComplaints = await Complaint.find();
-    console.log("allComplaints:::::")
-    console.log(allComplaints)
+    console.log("allComplaints:::::");
+    console.log(allComplaints);
     // Render the dashboard view and send user data
     res.render("adminDashboard", {
       maintenanceDetails: maintenance,
-      user:user,
-      username:user.username,
+      user: user,
+      username: user.username,
       flat: convertUsername(user.username),
       email: user.email,
       name: user.name,
       phone: user.mobile,
-      hasProfilePhoto:user.hasProfilePhoto,
+      hasProfilePhoto: user.hasProfilePhoto,
       isLogedin: true,
-      id:user._id,
-      allNotices : allNotices,
-      complaints : allComplaints,
-      events : events,
-      userIsAdmin : user.isAdmin,
+      id: user._id,
+      allNotices: allNotices,
+      complaints: allComplaints,
+      events: events,
+      userIsAdmin: user.isAdmin,
     });
   } else {
     // Render the dashboard view and send user data
     res.render("userDashboard", {
       maintenanceDetails: maintenance,
-      user:user,
-      username:user.username,
+      user: user,
+      username: user.username,
       flat: convertUsername(user.username),
       email: user.email,
       name: user.name,
       phone: user.mobile,
-      hasProfilePhoto:user.hasProfilePhoto,
+      hasProfilePhoto: user.hasProfilePhoto,
       isLogedin: true,
-      id:user._id,
-      allNotices : allNotices,
-      events : events,
-      userIsAdmin : user.isAdmin,
+      id: user._id,
+      allNotices: allNotices,
+      events: events,
+      userIsAdmin: user.isAdmin,
     });
   }
 });
 
-app.get("/goHome", (req,res)=>{
+app.get("/goHome", (req, res) => {
   res.redirect("/");
-})
+});
 
 app.get("/logout", (req, res) => {
   req.session.destroy((err) => {

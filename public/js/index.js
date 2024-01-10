@@ -1,26 +1,26 @@
 // document.getElementById("sidebar1").style.display="none"
-document.getElementById("sidebar").style.display = "none";
-const logoutbtn = document.getElementById("logoutbtn");
+// document.getElementById("sidebar").style.display = "none";
+// const logoutbtn = document.getElementById("logoutbtn");
 
 // expand sidebar
-function expandSidebar(hamBtn) {
-  console.log(hamBtn);
-  if (hamBtn == "hamBtn1") {
-    if (document.getElementById("sidebar1").style.display == "block") {
-      document.getElementById("sidebar1").style.display = "none";
-    }
-    else{
-      document.getElementById("sidebar1").style.display = "block";
-    }
-  } else {
-    if (document.getElementById("sidebar").style.display == "block") {
-      document.getElementById("sidebar").style.display = "none";
-    }
-    else{
-      document.getElementById("sidebar").style.display = "block";
-    }
-  }
-}
+// function expandSidebar(hamBtn) {
+//   console.log(hamBtn);
+//   if (hamBtn == "hamBtn1") {
+//     if (document.getElementById("sidebar1").style.display == "block") {
+//       document.getElementById("sidebar1").style.display = "none";
+//     }
+//     else{
+//       document.getElementById("sidebar1").style.display = "block";
+//     }
+//   } else {
+//     if (document.getElementById("sidebar").style.display == "block") {
+//       document.getElementById("sidebar").style.display = "none";
+//     }
+//     else{
+//       document.getElementById("sidebar").style.display = "block";
+//     }
+//   }
+// }
 
 
   // Function to automatically scroll the div horizontally
