@@ -6,8 +6,8 @@ const userSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  name:{
-    type:String
+  name: {
+    type: String,
   },
   email: {
     type: String,
@@ -20,15 +20,18 @@ const userSchema = new mongoose.Schema({
   mobile: {
     type: Number,
   },
-  isAdmin:{
-    type:Boolean,
-    default:false
+  isAdmin: {
+    type: Boolean,
+    default: false,
   },
-  hasProfilePhoto:{
-    type:Boolean,
-    default:false
+  hasProfilePhoto: {
+    type: Boolean,
+    default: false,
   },
-  maintenance: { type: mongoose.Schema.Types.ObjectId, ref: 'Maintenance' }
+  dp: {
+    type: String,
+  },
+  maintenance: { type: mongoose.Schema.Types.ObjectId, ref: "Maintenance" },
 });
 
 const user = mongoose.model("user", userSchema);

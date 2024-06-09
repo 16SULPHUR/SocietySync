@@ -13,9 +13,9 @@ const maintenance = require("./modals/Maintenance");
 const app = express();
 const cors = require("cors");
 // const PORT = process.env.PORT;
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-const YOUR_DOMAIN = 'http://127.0.0.1:3000';
+const YOUR_DOMAIN = 'http://127.0.0.1:3001';
 
 app.use(
   session({
